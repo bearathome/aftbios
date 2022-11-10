@@ -144,11 +144,12 @@ export default {
       max-height: 100vh;
       height: calc(100vh - #{$header-height});
       padding: 72px;
-      z-index: 10;
+      z-index: 11;
     }
   }
 
   .mega-menu {
+    z-index: 10;
     position: absolute;
     width: 100vw;
     top: $header-height;
@@ -156,7 +157,7 @@ export default {
     max-height: 0;
     transition: all .5s ease-in-out;
     overflow: hidden;
-    background: rgba(255, 255, 255, 0.8);
+    background: rgba(255, 255, 255, 0.9);
 
     padding: 0 72px;
     gap: 30px;
@@ -180,6 +181,7 @@ export default {
       }
     }
     &.do {
+      background: white;
       gap: 30px;
       .mega-item {
         border-left: 4px solid $color-main;
