@@ -111,12 +111,10 @@ export default {
   position: relative;
   height: $header-height;
   width: 100vw;
-  // position: fixed;
-  // top: 0;
-  // left: 0;
   background: white;
   box-shadow: 0px 4px 26px 1px rgba(0, 0, 0, 0.12);
   padding: 0 76px;
+  z-index: 5;
 
   .menu {
     height: $header-height;
