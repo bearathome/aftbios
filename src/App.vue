@@ -1,32 +1,43 @@
-<template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
-  </div>
+<template lang="pug">
+#app
+  page-header
+  .main-page
+    router-view
+    page-footer
 </template>
 
+<script>
+import PageHeader from '@/components/PageHeader.vue';
+import PageFooter from '@/components/PageFooter.vue';
+
+export default {
+  components: {
+    PageHeader,
+    PageFooter,
+  },
+};
+</script>
+
 <style lang="scss">
+@import '@/assets/styles/global.scss';
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
+  width: 100vw;
+  min-height: 100vh;
+  overflow: hidden;
+  .main-page {
+    margin: 0 auto;
+    max-width: 1440px;
+    height: calc(100vh - #{$header-height});
+    overflow: overlay;
+    overflow: auto;
   }
 }
 </style>
