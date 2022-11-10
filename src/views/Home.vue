@@ -108,6 +108,8 @@ export default {
           background: gray;
           border-radius: 50%;
           background-image: url('/images/home/image1.png');
+          background-size: cover;
+          background-position: center;
         }
       }
     }
