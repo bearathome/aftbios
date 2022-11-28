@@ -26,6 +26,21 @@ const routes = [
     component: () => import('../views/whatwedo/Biocontrol.vue'),
   },
   {
+    path: '/what-we-do/RNA-Formulation-strategies',
+    name: 'RNA-Formulation-strategies',
+    component: () => import('../views/whatwedo/RNAFormulation.vue'),
+  },
+  {
+    path: '/what-we-do/Bioanalytical-platform-development',
+    name: 'Bioanalytical-platform-development',
+    component: () => import('../views/whatwedo/BioanalyticalPlatform.vue'),
+  },
+  {
+    path: '/what-we-do/Molecular-diagnostics',
+    name: 'Molecular-diagnostics',
+    component: () => import('../views/whatwedo/Molecular.vue'),
+  },
+  {
     path: '/about',
     name: 'About',
     // route level code-splitting

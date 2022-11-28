@@ -1,6 +1,6 @@
 <template lang="pug">
 .what-we-do-block(
-  :class="{'invert': invert, 'radius': hasRadius}"
+  :class="{'invert': invert, 'radius': hasRadius, 'no-image': image === undefined}"
   :style="blockStyle"
   )
   .content.flex.column.align-start
@@ -125,6 +125,11 @@ export default {
     .image {
       grid-column: 1 / 6;
       grid-row: 1;
+    }
+  }
+  &.no-image {
+    .content {
+      grid-column: 1 / 13;
     }
   }
 }
