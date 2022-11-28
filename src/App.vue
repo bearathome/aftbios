@@ -1,6 +1,6 @@
 <template lang="pug">
 #app
-  page-header
+  page-header.header
   .main-page
     router-view
     page-footer
@@ -38,6 +38,9 @@ export default {
     height: calc(100vh - #{$header-height});
     overflow: overlay;
     overflow: auto;
+  }
+  .header {
+    z-index: 10;
   }
 }
 </style>

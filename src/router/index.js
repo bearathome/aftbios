@@ -11,6 +11,21 @@ const routes = [
     component: Home,
   },
   {
+    path: '/what-we-do/overview',
+    name: 'Overview',
+    component: () => import('../views/whatwedo/Overview.vue'),
+  },
+  {
+    path: '/what-we-do/vaccines-and-therapeutics',
+    name: 'vaccines-and-therapeutics',
+    component: () => import('../views/whatwedo/Vaccines.vue'),
+  },
+  {
+    path: '/what-we-do/RNA-Biocontrol',
+    name: 'RNA-Biocontrol',
+    component: () => import('../views/whatwedo/Biocontrol.vue'),
+  },
+  {
     path: '/about',
     name: 'About',
     // route level code-splitting

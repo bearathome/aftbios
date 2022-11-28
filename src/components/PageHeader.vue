@@ -72,14 +72,17 @@ export default {
         {
           title: 'Overview',
           desc: 'Solving important health and agricultural problems facing the world today using next-generation RNA technologie',
+          link: '/what-we-do/overview',
         },
         {
           title: 'Vaccines and Therapeutics',
           desc: 'mRNA has demonstrated its potential to be a leading vaccine candidate, and we are committed to delivering mRNA vaccines all over the world',
+          link: '/what-we-do/vaccines-and-therapeutics',
         },
         {
           title: 'RNA Biocontrols',
           desc: 'RNA is a biological molecule found in almost all living things',
+          link: '/what-we-do/RNA-Biocontrol',
         },
         {
           title: 'RNA Formulation strategies',
@@ -94,11 +97,14 @@ export default {
     };
   },
   methods: {
-    goPage() {
+    goPage(mega) {
       this.hideMenu = true;
       setTimeout(() => {
         this.hideMenu = false;
       }, 100);
+      if (mega.link) {
+        this.$router.push(mega.link);
+      }
     },
   },
 };
