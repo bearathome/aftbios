@@ -4,7 +4,7 @@
     title="Molecular diagnostics",
     :desc="desc"
     image="molecular.png")
-  breadcrumb(page="RNA Formulation strategies")
+  breadcrumb(page="Molecular diagnostics")
   .blocks.flex.column
     block(
       v-for="(data, idx) in datas"
