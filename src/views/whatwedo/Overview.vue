@@ -2,16 +2,17 @@
 .what-we-do-overview.flex.column(v-if="ready")
   banner(
     title="Overview",
-    desc="Our RNA technologies are here to solve problems"
-    image="overview.png")
+    desc="Our RNA technologies are here to solve problems",
+    image="overview.png"
+  )
   breadcrumb(page="Overview")
   .content.flex.row.align-start
     .content-img
-    .content-title.flex.row
+    .content-title.flex.row(data-aos="fade-right")
       .dot
       .txt What we do
     .blocks.flex.column
-      .block.flex.column(v-for="block in datas")
+      .block.flex.column(v-for="block in datas", data-aos="fade-left")
         .title {{ block.title }}
         .splitter
         .desc(v-for="line in block.desc") {{ line }}
@@ -82,7 +83,7 @@ export default {
 
 <style lang="scss" scoped>
 .what-we-do-overview {
-  background-color: #FCFAF3;
+  background-color: #fcfaf3;
   gap: 40px;
   .content {
     position: relative;
@@ -91,7 +92,7 @@ export default {
       margin-left: 60px;
       flex: 0 0 400px;
       .dot {
-        background: #F8DA4F;
+        background: #f8da4f;
         width: 68px;
         height: 68px;
         flex: 0 0 68px;
@@ -115,14 +116,25 @@ export default {
         border-top-left-radius: 25px;
         border-bottom-left-radius: 25px;
 
-        &:nth-child(2n+1) {
+        transition: all 0.4s ease-in-out;
+        cursor: pointer;
+        &:hover {
+          &:nth-child(2n) {
+            margin-left: -8px;
+          }
+          &:nth-child(2n + 1) {
+            margin-left: 100px;
+          }
+        }
+
+        &:nth-child(2n + 1) {
           margin-left: 108px;
           background: white;
           .title {
             color: #509045;
           }
           .splitter {
-            background: #D3A271;
+            background: #d3a271;
           }
           .link {
             color: #509045;
@@ -133,7 +145,7 @@ export default {
         }
 
         &:nth-child(2n) {
-          background: #D07C3F;
+          background: #d07c3f;
           color: white;
           .splitter {
             background: white;
@@ -174,7 +186,7 @@ export default {
       bottom: -30vw;
       height: 100vw;
       border-radius: 50vw;
-      background-image: url('/images/whatwedo/overview2.png');
+      background-image: url("/images/whatwedo/overview2.png");
       background-size: cover;
       z-index: 0;
       opacity: 0.8;

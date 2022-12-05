@@ -19,11 +19,14 @@ export default {
 </script>
 
 <style lang="scss">
-@import '@/assets/styles/global.scss';
+@import "@/assets/styles/global.scss";
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+body {
+  overflow: overlay;
 }
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
@@ -35,12 +38,14 @@ export default {
   .main-page {
     margin: 0 auto;
     max-width: 1440px;
-    height: calc(100vh - #{$header-height});
     overflow: overlay;
-    overflow: auto;
+    padding-top: $header-height;
   }
   .header {
     z-index: 10;
+    position: absolute;
+    top: 0;
+    left: 0;
   }
 }
 </style>

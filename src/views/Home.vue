@@ -1,14 +1,14 @@
 <template lang="pug">
-.home
+.home(@click="test")
   .mission.flex.column
-    .brief.flex.column.align-start.justify-end
+    .brief.flex.column.align-start.justify-end(data-aos="fade-up")
       .title AFT
       .splitter
       .desc.flex.align-center.justify-start
         span We are delivering simple solutions to the problems of humanity.
       .image-container.flex.align-center.justify-center
         .image
-    .mission.flex.align-start
+    .mission.flex.align-start(data-aos="fade-up")
       .title Our Mission
       .desc
         span We are passionate about providing simple,&nbsp;
@@ -18,18 +18,18 @@
         span technologies and approaches to help solve some of&nbsp;
         span the most significant health and food challenges.&nbsp;
     .vision-container.flex.alitn-start
-      .left-image
+      .left-image(data-aos="fade-right")
       .right-section.flex.column.align-stretch
         .vision.flex.column.align-start
-          .title Our Vision
-          .desc.flex.column.align-stretch
+          .title(data-aos="fade-left") Our Vision
+          .desc.flex.column.align-stretch(data-aos="fade-left")
             .underline AFT’s vision is to make safe and affordable RNA technologies through
             .underline developing efficient RNA biomanufacturing and analytical platforms.
             br
             span We aim to achieve this through our unique platforms&nbsp;
             span for RNA designs, production, purification and analytics&nbsp;
             span to enable the delivery of RNA technologies worldwide.&nbsp;
-        .detail
+        .detail(data-aos="fade-left")
           span RNA technologies promise to solve many of humanity’s&nbsp;
           span most significant challenges, from RNA biocontrol for&nbsp;
           span delivery of safe and nutritious food to RNA with low&nbsp;
@@ -52,7 +52,7 @@
           br
           br
           br
-          Building on our expertise in developing biomanufacturing and analytical platforms&nbsp;
+          span Building on our expertise in developing biomanufacturing and analytical platforms&nbsp;
           span and working with partners, we are tackling complex problems of humanity, from&nbsp;
           span building platforms for safe RNA vaccines, therapeutics, pesticides, and&nbsp;
           span molecular diagnostics to developing analytical tools that will enable the&nbsp;
@@ -60,17 +60,23 @@
 </template>
 
 <script>
-// @ is an alias to /src
+import AOS from 'aos';
 
 export default {
   name: 'Home',
+  methods: {
+    test() {
+      AOS.refresh();
+      console.log('test');
+    },
+  },
 };
 </script>
 
 <style lang="scss" scoped>
 .home {
   .mission {
-    background: #FCFAF3;
+    background: #fcfaf3;
     .brief {
       position: relative;
       background: white;
@@ -84,7 +90,7 @@ export default {
         font-size: 100px;
       }
       .splitter {
-        background: #4E8B43;
+        background: #4e8b43;
         width: 80px;
         height: 4px;
         margin-bottom: 28px;
@@ -95,7 +101,7 @@ export default {
 
       .image-container {
         position: absolute;
-        background: #EDDFBB;
+        background: #eddfbb;
         width: 711px;
         height: 711px;
         flex: 0 0 711px;
@@ -107,7 +113,7 @@ export default {
           height: 661px;
           background: gray;
           border-radius: 50%;
-          background-image: url('/images/home/image1.png');
+          background-image: url("/images/home/image1.png");
           background-size: cover;
           background-position: center;
         }
@@ -122,7 +128,7 @@ export default {
         flex: 0 0 420px;
         font-weight: bold;
         font-size: 40px;
-        color: #D07C3F;
+        color: #d07c3f;
       }
       .desc {
         font-size: 26px;
@@ -131,8 +137,12 @@ export default {
     .vision-container {
       width: 100vw;
       max-width: 1440px;
-      background: rgb(252,250,243);
-      background: linear-gradient(180deg, rgba(252,250,243,1) 0%, rgba(255,255,255,1) 50%);
+      background: rgb(252, 250, 243);
+      background: linear-gradient(
+        180deg,
+        rgba(252, 250, 243, 1) 0%,
+        rgba(255, 255, 255, 1) 50%
+      );
       position: relative;
       .left-image {
         position: relative;
@@ -143,7 +153,7 @@ export default {
         height: 1428px;
         border-top-right-radius: 80px;
         border-bottom-left-radius: 280px;
-        background-image: url('/images/home/image2.png');
+        background-image: url("/images/home/image2.png");
       }
       .right-section {
         border-top-left-radius: 80px;
@@ -159,7 +169,7 @@ export default {
           .title {
             font-weight: bold;
             font-size: 40px;
-            color: #D07C3F;
+            color: #d07c3f;
             margin-bottom: 40px;
           }
           .desc {
@@ -167,7 +177,7 @@ export default {
             .underline {
               position: relative;
               &::after {
-                content: ' ';
+                content: " ";
                 width: 100%;
                 height: 10px;
                 background-color: rgba(80, 144, 69, 0.2);
@@ -181,7 +191,7 @@ export default {
         }
         .detail {
           font-size: 26px;
-          background: #D07C3F;
+          background: #d07c3f;
           padding: 76px 98px 76px 216px;
           border-top-left-radius: 64px;
           color: white;
