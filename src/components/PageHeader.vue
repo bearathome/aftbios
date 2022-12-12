@@ -1,27 +1,25 @@
 <template lang="pug">
 .page-header.flex.align-center.justify-space-between
   .left.flex.align-center
-    .logo AFTBios
+    .logo(@click="goHome") AFTBios
   .right.flex.align-center
-    .menu.flex.column.clickable(v-for="menu in menus", :key="menu.text")
+    .menu.flex.column.clickable(
+      v-for="menu in menus", :key="menu.text"
+      @click="goMenuPage(menu)")
       .text.flex.align-center {{ menu.text }}
       .hover-bar
       template(v-if="!hideMenu")
-        .mega-menu.home.flex(v-if="menu.text === 'Home'")
-          .mega-item.flex.column(
-            v-for="mega in homeMega", :key="mega.title"
-            @click="goPage(mega)")
-            .title {{ mega.title }}
-            .desc {{ mega.desc }}
-          //- .mega-item.blank
         .mega-menu.do.flex.column(v-if="menu.text === 'What we do'")
-          .mega-item.flex.column(
-            v-for="mega in whatWeDo", :key="mega.title"
-            @click="goPage(mega)")
-            .title.flex.align-center.gap-12
-              .title-text {{ mega.title }}
-              vue-material-icon(name="arrow_forward" :size="20")
-            .desc {{ mega.desc }}
+          .item.flex.align-center.gap-12(v-for="(mega, idx) in whatWeDo")
+            .mega-border
+            .mega-img(:key="idx")
+            .mega-item.flex.column(
+              :key="mega.title"
+              @click="goPage(mega)")
+              .title.flex.align-center.gap-12
+                .title-text {{ mega.title }}
+                vue-material-icon(name="arrow_forward" :size="20")
+              .desc {{ mega.desc }}
 </template>
 
 <script>
@@ -32,6 +30,7 @@ export default {
       menus: [
         {
           text: 'Home',
+          link: '/',
         },
         {
           text: 'What we do',
@@ -123,6 +122,14 @@ export default {
         this.$router.push(mega.link);
       }
     },
+    goHome() {
+      this.$router.push('/');
+    },
+    goMenuPage(menu) {
+      if (menu.link) {
+        this.$router.push(menu.link);
+      }
+    },
   },
 };
 </script>
@@ -138,6 +145,11 @@ export default {
   box-shadow: 0px 4px 26px 1px rgba(0, 0, 0, 0.12);
   padding: 0 76px;
   z-index: 5;
+
+  .logo {
+    cursor: pointer;
+    user-select: none;
+  }
 
   .menu {
     height: $header-height;
@@ -166,6 +178,8 @@ export default {
       height: calc(100vh - #{$header-height});
       padding: 72px;
       z-index: 11;
+      border-top: 1px solid #CDCDCD;
+      border-bottom: 1px solid #CDCDCD;
     }
   }
 
@@ -204,9 +218,24 @@ export default {
     &.do {
       background: white;
       gap: 30px;
+      .item {
+        transition: transform .1s ease-in-out;
+        &:hover {
+          transform: translate(-4px, -4px);
+        }
+      }
+      .mega-border {
+        // border-left: 4px solid $color-main;
+        height: 40px;
+      }
+      .mega-img {
+        flex: 0 0 40px;
+        height: 40px;
+        background: #ccc;
+      }
       .mega-item {
-        border-left: 4px solid $color-main;
         padding: 0 24px;
+        padding-left: 0px;
         .title {
           .title-text {
             color: $color-main;

@@ -3,10 +3,11 @@
   banner(
     title="RNA Biocontrol",
     :desc="desc"
-    image="RNAcontrol.png")
+    image="formulation.png")
   breadcrumb(page="RNA Biocontrol")
   .blocks.flex.column
     block(
+      data-aos="fade-up"
       v-for="(data, idx) in datas"
       :key="idx"
       :title="data.title"
@@ -54,7 +55,7 @@ export default {
         },
         {
           desc: [
-            'Most pesticides are hazardous, killing insects and organisms beneficial to our ecosystem – RNA pesticides are designed to target only pests of interest and not harm any other insect. However, substantially challenge the deployment of this technology so that people all over the world can access them',
+            'Most pesticides are hazardous, killing insects and organisms beneficial to our ecosystem – RNA pesticides are designed to target only pests of interest and not harm any other insect. However, substantially challenge the deployment of this technology so that people all over the world can access them.',
           ],
           image: 'vaccines1.png',
           invert: false,

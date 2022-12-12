@@ -7,6 +7,7 @@
   breadcrumb(page="RNA Formulation strategies")
   .blocks.flex.column
     block(
+      data-aos="fade-up"
       v-for="(data, idx) in datas"
       :key="idx"
       :title="data.title"

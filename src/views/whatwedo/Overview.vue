@@ -12,7 +12,9 @@
       .dot
       .txt What we do
     .blocks.flex.column
-      .block.flex.column(v-for="block in datas", data-aos="fade-left")
+      .block.flex.column(
+        v-for="block in datas", data-aos="fade-left"
+        @click="goPage(block)")
         .title {{ block.title }}
         .splitter
         .desc(v-for="line in block.desc") {{ line }}
@@ -40,38 +42,45 @@ export default {
             'mRNA vaccines provide a safe and long-lasting immune response in animal models and humans',
             '(e.g. Affordable platforms for mRNA vaccines…)',
           ],
-          link: '',
+          link: '/what-we-do/vaccines-and-therapeutics',
         },
         {
           title: 'RNA Biocontrols',
           desc: [
             'By implementing our engineered novel RNA biocontrol platform, we can save hundreds of thousands of crops in fields',
           ],
-          link: '',
+          link: '/what-we-do/RNA-Biocontrol',
         },
         {
           title: 'RNA Formulation strategies',
           desc: [
             'Formulation strategies for delivery of mRNA therapeutics and dsRNA pesticide is in the pipeline',
           ],
-          link: '',
+          link: '/what-we-do/RNA-Formulation-strategies',
         },
         {
           title: 'Bioanalytical platform development',
           desc: [
             'Our diagnostic technologies are designed for everyone, no matter where you are',
           ],
-          link: '',
+          link: '/what-we-do/Bioanalytical-platform-development',
         },
         {
           title: 'Molecular diagnostics',
           desc: [
             'Our low-cost, single-enzyme-based detection method, versatility, compatibility with existing qPCR systems as well as point-of-care-technology devices will rapidly respond to emerging pandemics',
           ],
-          link: '',
+          link: '/what-we-do/Molecular-diagnostics',
         },
       ],
     };
+  },
+  methods: {
+    goPage(block) {
+      if (block.link) {
+        this.$router.push(block.link);
+      }
+    },
   },
   mounted() {
     setTimeout(() => {

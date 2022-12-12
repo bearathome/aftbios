@@ -7,6 +7,7 @@
   breadcrumb(page="Vaccines and therapeutics ")
   .blocks.flex.column
     block(
+      data-aos="fade-up"
       v-for="(data, idx) in datas"
       :key="idx"
       :title="data.title"
@@ -20,6 +21,7 @@
       :color="data.color"
       :padding-bottom="data.pbottom"
       :padding-top="data.ptop"
+      :small-title="data.smallTitle"
     )
 </template>
 
@@ -64,8 +66,9 @@ export default {
           pbottom: 87 + 250,
         },
         {
+          title: 'mRNA vaccines provide a safe and long-lasting immune response in animal models and humans',
+          smallTitle: true,
           desc: [
-            'mRNA vaccines provide a safe and long-lasting immune response in animal models and humans',
             'RNA vaccines have the potential to become powerful tools against infectious diseases in humans, animals and even plants. However, most RNA production methods largely depend on in vitro synthesis, which is hugely expensive. Our expertise and exclusive technology will help deploy cost-effective, high-efficacy RNA-based vaccines to the most remote areas.',
           ],
           image: 'vaccines3.png',

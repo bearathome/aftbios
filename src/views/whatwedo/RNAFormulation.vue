@@ -3,10 +3,11 @@
   banner(
     title="RNA Formulation strategies (non-viral RNA delivery)",
     :desc="desc"
-    image="formulation.png")
+    image="RNAcontrol.png")
   breadcrumb(page="RNA Formulation strategies")
   .blocks.flex.column
     block(
+      data-aos="fade-up"
       v-for="(data, idx) in datas"
       :key="idx"
       :title="data.title"

@@ -4,7 +4,7 @@
   :style="blockStyle"
   )
   .content.flex.column.align-start
-    .title {{ title }}
+    .title(:class="{'small': smallTitle}") {{ title }}
     .desc(v-for="line in desc") {{ line }}
   .image(
     v-if="image !== undefined && image !== ''"
@@ -62,6 +62,10 @@ export default {
       type: Number,
       default: undefined,
     },
+    smallTitle: {
+      type: Boolean,
+      default: false,
+    },
   },
   computed: {
     blockStyle() {
@@ -106,6 +110,9 @@ export default {
     .title {
       font-weight: 400;
       font-size: 50px;
+      &.small {
+        font-size: 30px;
+      }
     }
     .desc {
       font-size: 20px;

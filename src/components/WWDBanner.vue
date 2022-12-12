@@ -1,8 +1,8 @@
 <template lang="pug">
 .wwd-banner.flex.column.justify-center.align-start(:style="bgStyle")
-  .title {{ title }}
+  .title(data-aos="fade-up") {{ title }}
   .seperator
-  .desc {{ desc }}
+  .desc(data-aos="fade-up") {{ desc }}
 </template>
 
 <script>
