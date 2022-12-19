@@ -113,7 +113,7 @@ export default {
           height: 661px;
           background: gray;
           border-radius: 50%;
-          background-image: url("./images/home/image1.png");
+          background-image: url("~@/images/home/image1.png");
           background-size: cover;
           background-position: center;
         }
@@ -153,7 +153,7 @@ export default {
         height: 1428px;
         border-top-right-radius: 80px;
         border-bottom-left-radius: 280px;
-        background-image: url("./images/home/image2.png");
+        background-image: url("~@/images/home/image2.png");
       }
       .right-section {
         border-top-left-radius: 80px;

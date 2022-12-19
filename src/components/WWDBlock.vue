@@ -8,7 +8,7 @@
     .desc(v-for="line in desc") {{ line }}
   .image(
     v-if="image !== undefined && image !== ''",
-    :style="{ 'background-image': 'url(./images/whatwedo/' + image }"
+    :style="{ 'background-image': 'url(~@/images/whatwedo/' + image }"
   )
 </template>
 
