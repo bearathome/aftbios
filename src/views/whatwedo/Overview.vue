@@ -13,8 +13,10 @@
       .txt What we do
     .blocks.flex.column
       .block.flex.column(
-        v-for="block in datas", data-aos="fade-left"
-        @click="goPage(block)")
+        v-for="block in datas",
+        data-aos="fade-left",
+        @click="goPage(block)"
+      )
         .title {{ block.title }}
         .splitter
         .desc(v-for="line in block.desc") {{ line }}
@@ -195,7 +197,7 @@ export default {
       bottom: -30vw;
       height: 100vw;
       border-radius: 50vw;
-      background-image: url("/images/whatwedo/overview2.png");
+      background-image: url("./images/whatwedo/overview2.png");
       background-size: cover;
       z-index: 0;
       opacity: 0.8;

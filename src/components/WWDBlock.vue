@@ -1,14 +1,15 @@
 <template lang="pug">
 .what-we-do-block(
-  :class="{'invert': invert, 'radius': hasRadius, 'no-image': image === undefined}"
+  :class="{ invert: invert, radius: hasRadius, 'no-image': image === undefined }",
   :style="blockStyle"
-  )
+)
   .content.flex.column.align-start
-    .title(:class="{'small': smallTitle}") {{ title }}
+    .title(:class="{ small: smallTitle }") {{ title }}
     .desc(v-for="line in desc") {{ line }}
   .image(
-    v-if="image !== undefined && image !== ''"
-    :style="{'background-image': 'url(/images/whatwedo/'+image}")
+    v-if="image !== undefined && image !== ''",
+    :style="{ 'background-image': 'url(./images/whatwedo/' + image }"
+  )
 </template>
 
 <script>
