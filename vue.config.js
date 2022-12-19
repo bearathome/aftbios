@@ -1,3 +1,3 @@
 module.exports = {
-    publicPath: '/aftbios/'
+    publicPath: '/aftbios/',
 };

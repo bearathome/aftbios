@@ -25,7 +25,7 @@ export default {
   computed: {
     bgStyle() {
       return {
-        'background-image': `url(@/images/whatwedo/${this.image})`,
+        'background-image': `url(/aftbios/images/whatwedo/${this.image})`,
       };
     },
   },
