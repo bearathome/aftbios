@@ -28,6 +28,7 @@ jobs:
       run: |
         npm install
         npm run build
+        mv dist docs
     - name: Commit to pages branch
       uses: stefanzweifel/git-auto-commit-action@v4
       with:
