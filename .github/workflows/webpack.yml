@@ -29,6 +29,7 @@ jobs:
         npm install
         npm run build
         mv dist docs
+        
     - name: Commit to pages branch
       uses: stefanzweifel/git-auto-commit-action@v4
       with:
@@ -40,6 +41,8 @@ jobs:
         #  to. Defaults to the current branch.
         #  You might need to set `create_branch: true` if the branch does not exist.
         branch: pages
+        
+        file_pattern: 'docs'
   
         # Optional. Options used by `git-commit`.
         # See https://git-scm.com/docs/git-commit#_options
