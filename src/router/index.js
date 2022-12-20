@@ -41,6 +41,17 @@ const routes = [
     component: () => import('../views/whatwedo/Molecular.vue'),
   },
   {
+    path: '/news-and-insights',
+    name: 'NewsAndInsight',
+    component: () => import('../views/Articles.vue'),
+  },
+  {
+    path: '/article/:page/:id',
+    name: 'Article',
+    component: () => import('../views/SingleArticle.vue'),
+    params: true,
+  },
+  {
     path: '/about',
     name: 'About',
     // route level code-splitting

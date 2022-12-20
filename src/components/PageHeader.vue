@@ -4,8 +4,10 @@
     .logo(@click="goHome") AFTBios
   .right.flex.align-center
     .menu.flex.column.clickable(
-      v-for="menu in menus", :key="menu.text"
-      @click="goMenuPage(menu)")
+      v-for="menu in menus",
+      :key="menu.text",
+      @click="goMenuPage(menu)"
+    )
       .text.flex.align-center {{ menu.text }}
       .hover-bar
       template(v-if="!hideMenu")
@@ -13,12 +15,10 @@
           .item.flex.align-center.gap-12(v-for="(mega, idx) in whatWeDo")
             .mega-border
             .mega-img(:key="idx")
-            .mega-item.flex.column(
-              :key="mega.title"
-              @click="goPage(mega)")
+            .mega-item.flex.column(:key="mega.title", @click="goPage(mega)")
               .title.flex.align-center.gap-12
                 .title-text {{ mega.title }}
-                vue-material-icon(name="arrow_forward" :size="20")
+                vue-material-icon(name="arrow_forward", :size="20")
               .desc {{ mega.desc }}
 </template>
 
@@ -37,9 +37,11 @@ export default {
         },
         {
           text: 'About Us',
+          link: '/about',
         },
         {
           text: 'News and Insights',
+          link: '/news-and-insights',
         },
         {
           text: 'Stakeholders',
@@ -135,7 +137,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '@/assets/styles/global.scss';
+@import "@/assets/styles/global.scss";
 
 .page-header {
   position: relative;
@@ -165,7 +167,7 @@ export default {
       flex: 0 0 4px;
       background-color: $color-main;
       max-width: 0;
-      transition: all .5s ease-in-out;
+      transition: all 0.5s ease-in-out;
       position: relative;
       left: 50%;
     }
@@ -178,8 +180,8 @@ export default {
       height: calc(100vh - #{$header-height});
       padding: 72px;
       z-index: 11;
-      border-top: 1px solid #CDCDCD;
-      border-bottom: 1px solid #CDCDCD;
+      border-top: 1px solid #cdcdcd;
+      border-bottom: 1px solid #cdcdcd;
     }
   }
 
@@ -190,7 +192,7 @@ export default {
     top: $header-height;
     left: 0;
     max-height: 0;
-    transition: all .5s ease-in-out;
+    transition: all 0.5s ease-in-out;
     overflow: hidden;
     background: rgba(255, 255, 255, 0.9);
 
@@ -201,7 +203,7 @@ export default {
       flex-wrap: wrap;
       justify-content: center;
       .mega-item {
-        background: #FCFAF3;
+        background: #fcfaf3;
         flex: 0 1 618px;
         height: 212px;
         padding: 30px;
@@ -219,7 +221,7 @@ export default {
       background: white;
       gap: 30px;
       .item {
-        transition: transform .1s ease-in-out;
+        transition: transform 0.1s ease-in-out;
         &:hover {
           transform: translate(-4px, -4px);
         }
