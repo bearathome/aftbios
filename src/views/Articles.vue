@@ -1,7 +1,7 @@
 <template lang="pug">
 .articles-page.flex.column.align-center
   .page-title.flex.justify-center.align-center.second-title News and Insights
-  .articles.flex.column.align-center.gap-24
+  .articles.flex.align-center.gap-24.wrap
     .article.flex.column.align-center.justify-end(
       v-for="article in articles",
       :key="article.title",
@@ -12,10 +12,11 @@
         .title.flex.column.align-center {{ article.title }}
         .brief {{ article.brief }}
       .blank
+    .empty-article(v-if="articles?.length % 2 !== 0")
 </template>
 
 <script>
-import axios from 'axios';
+import { mapActions, mapGetters } from 'vuex';
 import info from '@/article-info.json';
 
 export default {
@@ -23,17 +24,15 @@ export default {
     return {
       info,
       page: 1,
-      articles: [],
     };
   },
+  computed: {
+    ...mapGetters(['articleMap', 'articles']),
+  },
   methods: {
-    async loadPage(page) {
-      const rsp = await axios.get(`/news-pages/${page}.json`);
-      this.page = page;
-      this.articles = rsp.data;
-    },
+    ...mapActions(['loadArticles']),
     goArticle(article) {
-      this.$router.push(`/article/${this.page}/${article.id}`);
+      this.$router.push(`/article/${article.id}`);
     },
     computeArticleStyle(article) {
       return {
@@ -42,24 +41,30 @@ export default {
     },
   },
   mounted() {
-    this.loadPage(1);
+    this.loadArticles();
   },
 };
 </script>
 
 <style lang="scss" scoped>
 .articles-page {
+  padding: 0 76px;
   .page-title {
     flex: 0 0 200px;
   }
 
   .articles {
     max-width: 1440px;
+    .empty-article {
+      height: 240px;
+      flex: 1 0 40%;
+    }
     .article {
       cursor: pointer;
       position: relative;
-      max-width: 800px;
-      flex: 0 0 240px;
+      height: 240px;
+      flex: 1 0 40%;
+      min-width: 600px;
       background: rgba(255, 249, 230, 0.9);
       border-radius: 20px;
       overflow: hidden;

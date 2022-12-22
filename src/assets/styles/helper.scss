@@ -53,6 +53,9 @@
   &.fill {
     flex: 1 !important;
   }
+  &.wrap {
+    flex-wrap: wrap;
+  }
 }
 
 .clickable {

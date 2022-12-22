@@ -1,47 +1,55 @@
 <template lang="pug">
 .article.flex.column.align-center
   .title.flex.column.align-center.justify-center.gap-12
-    .date.third-title {{ article.date }}
-    .second-title {{ article.title }}
-  .image
+    .date.third-title {{ article?.date }}
+    .second-title {{ article?.title }}
+  .image(v-if="article")
     img(:src="`/news-images/${article.image}`")
-  .blocks.flex.column.gap-30
-    .block.flex.column.gap-12(v-for="block in article.blocks")
-      .block-title {{ block.title }}
-      .block-content.flex.column.gap-12
-        .paragraph(v-for="text in block.text") {{ text }}
+  vue-markdown.markdown(v-if="content !== ''") {{ content }}
 </template>
 
 <script>
+import { mapActions, mapGetters } from 'vuex';
 import axios from 'axios';
+import VueMarkdown from 'vue-markdown';
 
 export default {
   data() {
     return {
-      article: {},
+      id: 0,
+      content: '',
     };
   },
-  methods: {
-    async loadPage(page) {
-      const rsp = await axios.get(`/news-pages/${page}.json`);
-      return rsp.data;
+  components: {
+    VueMarkdown,
+  },
+  computed: {
+    ...mapGetters(['articleMap']),
+    article() {
+      return this.articleMap[this.id];
     },
-    async getArticle(page, id) {
-      const articles = await this.loadPage(page);
-
-      for (let i = 0; i < articles.length; i += 1) {
-        if (articles[i].id === id) {
-          return articles[i];
-        }
+    mdPath() {
+      return this.article?.file;
+    },
+  },
+  watch: {
+    mdPath() {
+      this.loadArticle();
+    },
+  },
+  methods: {
+    ...mapActions(['loadArticles']),
+    async loadArticle() {
+      if (this.mdPath) {
+        const rsp = await axios.get(`/news-pages/articles/${this.mdPath}`);
+        this.content = rsp.data;
       }
-      return {};
     },
     async loadData() {
-      const page = parseInt(this.$route.params.page, 10);
-      const id = parseInt(this.$route.params.id, 10);
-
-      const data = await this.getArticle(page, id);
-      this.article = data;
+      this.id = parseInt(this.$route.params.id, 10);
+      if (!this.article) {
+        this.loadArticles();
+      }
     },
   },
   mounted() {
@@ -53,6 +61,7 @@ export default {
 <style lang="scss" scoped>
 .article {
   .title {
+    margin-top: 32px;
     max-width: 60vw;
     flex: 0 0 200px;
   }
@@ -62,19 +71,8 @@ export default {
       max-width: 800px;
     }
   }
-  .blocks {
+  .markdown {
     max-width: 800px;
-    .block {
-      .block-title {
-        font-weight: bold;
-        font-size: 20px;
-      }
-      .block-content {
-        .paragraph {
-          text-align: justify;
-        }
-      }
-    }
   }
 }
 </style>

@@ -197,7 +197,7 @@ export default {
       bottom: -30vw;
       height: 100vw;
       border-radius: 50vw;
-      background-image: url("/aftbios/images/whatwedo/overview2.png");
+      background-image: url("/images/whatwedo/overview2.png");
       background-size: cover;
       z-index: 0;
       opacity: 0.8;
