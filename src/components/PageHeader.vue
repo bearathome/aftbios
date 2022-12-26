@@ -3,7 +3,7 @@
   .left.flex.align-center
     .logo(@click="goHome") AFTBios
   .right.flex.align-center
-    .menu.flex.column.clickable(
+    .menu.flex.column.clickable.rwd-hide(
       v-for="menu in menus",
       :key="menu.text",
       @click="goMenuPage(menu)"
@@ -20,6 +20,28 @@
                 .title-text {{ mega.title }}
                 vue-material-icon(name="arrow_forward", :size="20")
               .desc {{ mega.desc }}
+    .menu-icon.rwd-show.clickable(@click="showSlideMenu")
+      vue-material-icon(name="menu", :size="20")
+    .rwd-menu-slide.rwd-show(:class="{'show': slideMenuVisible}")
+      .overlay-bg
+      .rwd-menu.flex.column.align-center
+        .close-icon.clickable.flex.align-center.justify-center(@click="hideSlideMenu")
+          vue-material-icon.clickable(name="close", :size="20")
+        template(v-for="menu in menus")
+          .menu-row.flex.align-center.justify-center.clickable(
+            :key="menu.text",
+            @click="goMenuPageRWD(menu)"
+          ) {{ menu.text }}
+          template(v-if="menu.text === 'What we do'")
+            .rwd-mega-menu.do.flex.column(:class="{'show': rwdMegaVisible}")
+              .item.flex.align-center.gap-12.clickable(v-for="(mega, idx) in whatWeDo")
+                .mega-border
+                .mega-img(:key="idx")
+                .mega-item.flex.column(:key="mega.title", @click="goMenuPageRWD(mega)")
+                  .title.flex.align-center.gap-12
+                    .title-text {{ mega.title }}
+                    vue-material-icon(name="arrow_forward", :size="20")
+                  .desc {{ mega.desc }}
 </template>
 
 <script>
@@ -112,9 +134,19 @@ export default {
         },
       ],
       hideMenu: false,
+
+      slideMenuVisible: false,
+      rwdMegaVisible: false,
     };
   },
   methods: {
+    showSlideMenu() {
+      this.slideMenuVisible = true;
+    },
+    hideSlideMenu() {
+      this.slideMenuVisible = false;
+      this.rwdMegaVisible = false;
+    },
     goPage(mega) {
       this.hideMenu = true;
       setTimeout(() => {
@@ -127,10 +159,19 @@ export default {
     goHome() {
       this.$router.push('/');
     },
+    goMenuPageRWD(menu) {
+      if (this.goMenuPage(menu)) {
+        this.hideSlideMenu();
+      } else {
+        this.rwdMegaVisible = !this.rwdMegaVisible;
+      }
+    },
     goMenuPage(menu) {
       if (menu.link) {
         this.$router.push(menu.link);
+        return true;
       }
+      return false;
     },
   },
 };
@@ -199,26 +240,93 @@ export default {
     padding: 0 72px;
     gap: 30px;
     height: auto;
-    &.home {
-      flex-wrap: wrap;
-      justify-content: center;
-      .mega-item {
-        background: #fcfaf3;
-        flex: 0 1 618px;
-        height: 212px;
-        padding: 30px;
-        border-radius: 16px;
-        border-bottom-left-radius: 1px;
-        .title {
-          color: $color-main;
+    &.do {
+      background: white;
+      gap: 30px;
+      .item {
+        transition: transform 0.1s ease-in-out;
+        &:hover {
+          transform: translate(-4px, -4px);
         }
-        &.blank {
-          background: transparent;
+      }
+      .mega-border {
+        // border-left: 4px solid $color-main;
+        height: 40px;
+      }
+      .mega-img {
+        flex: 0 0 40px;
+        height: 40px;
+        background: #ccc;
+      }
+      .mega-item {
+        padding: 0 24px;
+        padding-left: 0px;
+        .title {
+          .title-text {
+            color: $color-main;
+          }
         }
       }
     }
-    &.do {
+  }
+
+  .menu-icon {
+    display: none;
+  }
+
+  .rwd-menu-slide {
+    overflow: visible;
+    width: 0;
+    height: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    .overlay-bg {
+      pointer-events: none;
+      background: rgba(0, 0, 0, 0.8);
+      width: 100vw;
+      height: 100vh;
+      opacity: 0.01;
+      transition: all .3s ease-in-out;
+    }
+
+    .rwd-menu {
+      overflow: scroll;
+      overflow: overlay;
+      pointer-events: none;
+      position: absolute;
+      top: 0;
+      left: 100vw;
+      width: 100vw;
+      height: 100vh;
+      max-width: 350px;
+      transition: all .3s ease-in-out;
       background: white;
+      .close-icon, .menu-row {
+        flex: 0 0 90px;
+      }
+    }
+    &.show {
+      .overlay-bg {
+        opacity: 1;
+      }
+      .rwd-menu {
+        pointer-events: all;
+        transform: translateX(-100%);
+      }
+    }
+  }
+
+  .rwd-mega-menu {
+    overflow: hidden;
+    max-height: 0;
+    transition: all .3s ease-in-out;
+    &.show {
+      overflow: initial;
+      max-height: 1020px;
+    }
+    &.do {
       gap: 30px;
       .item {
         transition: transform 0.1s ease-in-out;

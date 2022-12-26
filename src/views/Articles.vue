@@ -68,6 +68,9 @@ export default {
       background: rgba(255, 249, 230, 0.9);
       border-radius: 20px;
       overflow: hidden;
+      @media only screen and (max-width: 900px) {
+        min-width: 300px;
+      }
       .image {
         top: 0;
         left: 0;

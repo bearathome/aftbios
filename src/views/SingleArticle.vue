@@ -72,7 +72,8 @@ export default {
     }
   }
   .markdown {
-    max-width: 800px;
+    max-width: 840px;
+    padding: 0 20px;
   }
 }
 </style>

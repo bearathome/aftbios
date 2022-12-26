@@ -76,6 +76,9 @@ export default {
   border-top: 2px solid #D6D6D6;
   gap: 80px;
   padding-top: 60px;
+  @media only screen and (max-width: 900px) {
+    flex-direction: column;
+  }
   .whatwedo {
     flex: 0 0 auto;
     gap: 16px;

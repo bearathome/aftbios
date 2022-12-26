@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content=
+		"width=device-width, initial-scale=1.0">
+	<style>
+		body {
+			overflow: hidden;
+		}
+
+		.overlay {
+			position: fixed;
+			overflow-y: scroll;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+		}
+
+		[aria-hidden="true"] {
+			display: none;
+		}
+
+		[aria-hidden="false"] {
+			display: block;
+		}
+
+		.overlay div {
+			margin: 15vh auto;
+			width: 80%;
+			max-width: 650px;
+			padding: 30px;
+			min-height: 150vh;
+			background: darkslategray;
+		}
+
+		* {
+			box-sizing: border-box;
+		}
+	</style>
+</head>
+
+<body>
+	<h1 style="color:green; margin: 2rem;">
+		GeeksforGeeks
+	</h1>
+	
+	<h3 style="margin:2.2rem; margin-top:-2rem">
+		How to have multiple CSS transitions on an element?
+	</h3>
+	
+	<p>
+		GeeksforGeeks.org was established with
+		the intention of offering well-written,
+		well-thought-out, and well-explained
+		answers to certain problems. The core
+		group of five super geeks, who are fans
+		of technology and computer science, has
+		been working in this direction nonstop.
+		To make it simple for users to access,
+		GeeksforGeeks has organised its
+		information into a number of categories.
+		GeeksforGeeks has everything covered,
+		whether you want to learn algorithms,
+		data structures, or just the programming
+		language itself! Even if you're seeking
+		for interview preparation materials,
+		GeeksforGeeks provides a sizable collection
+		of company-specific interview experiences
+		that you may study from and that provide
+		users with insights into a company's hiring
+		process.
+	</p>
+
+	<button class="open-overlay">
+		OPEN OVERLAY
+	</button>
+	
+	<h3>DSA</h3>
+
+	<p>
+		A data structure is a collection of data
+		pieces that offers the simplest means of
+		storing and carrying out various operations
+		on computer data. An effective technique to
+		arrange data in a computer is through the
+		use of a data structure. The goal is to
+		simplify various chores in terms of space
+		and time requirements. Effective execution
+		of a number of crucial processes is made
+		possible by the selection of an appropriate
+		data structure. An effective data structure
+		uses the least amount of memory and
+		processing time possible. An instance of
+		ADT has also been defined by a data structure.
+		ADT is short for ABSTRACT DATA TYPE.
+		It has the formal definition of a triplet.
+		[D,F,A]
+	</p>
+
+	<h3>Algorithms</h3>
+
+	<p>
+		"A set of rules to be followed in calculations
+		or other issue-solving procedures" or "A
+		process for solving a mathematical problem in
+		a finite number of steps that typically
+		involves recursive operations" are two
+		definitions of the word algorithm.As a result,
+		an algorithm is a set of limited procedures
+		used to solve a certain problem.As opposed to
+		using the normal recipe's printed directions,
+		one would not follow them. In a similar vein,
+		not all computer instructions written down are
+		algorithms.
+	</p>
+
+	<h3> C++ </h3>
+	<p>
+		As an extension of the C language that
+		incorporates the object-oriented paradigm,
+		C++ is a general-purpose programming language.
+		It is a compiled language that is imperative.
+		Because C++ is a middle-level language, it has
+		the benefit of enabling the development of both
+		low-level (drivers and kernels) and even
+		higher-level programmes (games, GUI, desktop
+		apps etc.). Both C and C++ have the same
+		fundamental grammar and coding structure.
+	</p>
+
+	<h3>JAVA </h3>
+
+	<p>
+		James Gosling created JAVA at Sun Microsystems
+		Inc. in 1995. Oracle Corporation eventually
+		purchased Sun Microsystems Inc. The programming
+		language is straightforward. Programming is
+		simple to write,compile, and debug with Java.
+		It supports the development of modular programmes
+		and reusable code. Java is an object-oriented,
+		class-based programming language that is intended
+		to have a minimal amount of implementation
+		dependencies. a compiled general-purpose
+		programming language designed for developers to
+		write once and run anywhere All platforms that
+		support Java can run Java code. To create byte
+		code that can be executed on any Java Virtual
+		Machine, Java applications are compiled.
+		Java's syntax is comparable to that of C/C++.
+	</p>
+
+	<section class="overlay" aria-hidden="true">
+		<div>
+			<h1 style="color:greenyellow; margin: 2rem;">
+				GeeksforGeeks
+			</h1>
+			
+			<h3 style="margin:2.2rem; margin-top:-2rem;
+				color:aliceblue;">
+				How to have multiple CSS transitions on an element?
+			</h3>
+			
+			<h2 style="color:aliceblue;">
+				Hello, I'm the overlayer
+			</h2>
+			
+			<h2 style="color:aliceblue;">
+				You can scroll this Overlay
+			</h2>
+			
+			<h2 style="color:aliceblue;">
+				You can't scroll the background
+			</h2>
+			
+			<img src=
+"https://media.geeksforgeeks.org/wp-content/cdn-uploads/gfg_200x200-min.png"
+				alt="" width="500rem"
+				height="500rem" style="margin:2rem;">
+		</div>
+	</section>
+</body>
+
+</html>

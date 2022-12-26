@@ -23,8 +23,7 @@
         .vision.flex.column.align-start
           .title(data-aos="fade-left") Our Vision
           .desc.flex.column.align-stretch(data-aos="fade-left")
-            .underline AFT’s vision is to make safe and affordable RNA technologies through
-            .underline developing efficient RNA biomanufacturing and analytical platforms.
+            .underline AFT’s vision is to make safe and affordable RNA technologies through developing efficient RNA biomanufacturing and analytical platforms.
             br
             span We aim to achieve this through our unique platforms&nbsp;
             span for RNA designs, production, purification and analytics&nbsp;
@@ -80,37 +79,71 @@ export default {
     .brief {
       position: relative;
       background: white;
-      height: 525px;
+      height: 36vw;
+      min-height: 318px;
       border-bottom-right-radius: 300px;
       overflow: hidden;
       padding-left: 84px;
       padding-bottom: 100px;
-      padding-right: 880px;
+      padding-right: 55%;
+      @media only screen and (max-width: 900px) {
+        padding-right: 45%;
+        border-bottom-right-radius: 20%;
+        padding-left: 27px;
+        padding-bottom: 10%;
+      }
+      @media only screen and (max-width: 500px) {
+        padding-right: 45%;
+        border-bottom-right-radius: 20%;
+        padding-left: 27px;
+        padding-bottom: 20px;
+      }
       .title {
         font-size: 100px;
+        @media only screen and (max-width: 900px) {
+          font-size: 50px;
+        }
       }
       .splitter {
         background: #4e8b43;
         width: 80px;
         height: 4px;
         margin-bottom: 28px;
+        @media only screen and (max-width: 900px) {
+          margin-bottom: 20px;
+        }
       }
       .desc {
         font-size: 26px;
+        @media only screen and (max-width: 900px) {
+          font-size: 20px;
+        }
       }
 
       .image-container {
         position: absolute;
         background: #eddfbb;
-        width: 711px;
-        height: 711px;
-        flex: 0 0 711px;
+        max-width: 711px;
+        max-height: 711px;
+        min-width: 200px;
+        min-height: 200px;
+        width: 49.375vw;
+        height: 49.375vw;
+        flex: 0 0 49.375vw;
         border-radius: 50%;
         right: -32px;
-        top: -72px;
+        // top: -72px;
+        bottom: -20%;
+        @media only screen and (max-width: 900px) {
+        bottom: -10%;
+        }
         .image {
-          flex: 0 0 661px;
-          height: 661px;
+          flex: 0 0 calc(49.375vw - 50px);
+          height: calc(49.375vw - 50px);
+          max-height: 661px;
+          max-width: 661px;
+          min-width: 180px;
+          min-height: 180px;
           background: gray;
           border-radius: 50%;
           background-image: url("/images/home/image1.png");
@@ -123,15 +156,32 @@ export default {
       margin-top: 172px;
       margin-bottom: 64px;
       padding: 0 84px;
+      @media only screen and (max-width: 900px) {
+        margin-top: 80px;
+        padding: 0 30px;
+      }
+      @media only screen and (max-width: 500px) {
+        flex-direction: column;
+      }
 
       .title {
         flex: 0 0 420px;
         font-weight: bold;
         font-size: 40px;
         color: #d07c3f;
+        @media only screen and (max-width: 900px) {
+          flex: 0 0 225px;
+          font-size: 24px;
+        }
+        @media only screen and (max-width: 500px) {
+          flex: 0 0 auto;
+        }
       }
       .desc {
         font-size: 26px;
+        @media only screen and (max-width: 900px) {
+          font-size: 20px;
+        }
       }
     }
     .vision-container {
@@ -154,6 +204,12 @@ export default {
         border-top-right-radius: 80px;
         border-bottom-left-radius: 280px;
         background-image: url("/images/home/image2.png");
+        @media only screen and (max-width: 900px) {
+          flex: 0 0 324px;
+        }
+        @media only screen and (max-width: 500px) {
+          display: none;
+        }
       }
       .right-section {
         border-top-left-radius: 80px;
@@ -165,27 +221,33 @@ export default {
         right: 0;
         background: rgba(255, 249, 230, 0.9);
         padding: 72px 108px 0px 108px;
+        @media only screen and (max-width: 500px) {
+          margin-left: 0;
+          margin-top: 0;
+          padding: 72px;
+          padding-bottom: 0;
+        }
         .vision {
           .title {
             font-weight: bold;
             font-size: 40px;
             color: #d07c3f;
             margin-bottom: 40px;
+            @media only screen and (max-width: 900px) {
+              font-size: 26px;
+              transform: none !important;
+            }
           }
           .desc {
             font-size: 26px;
             .underline {
               position: relative;
-              &::after {
-                content: " ";
-                width: 100%;
-                height: 10px;
-                background-color: rgba(80, 144, 69, 0.2);
-                border-radius: 5px;
-                bottom: 4px;
-                left: 0;
-                position: absolute;
-              }
+              text-decoration-line: line-through;
+              text-decoration-color: rgba(80, 144, 69, 0.2);
+              text-decoration-thickness: 10px;
+            }
+            @media only screen and (max-width: 900px) {
+              font-size: 20px;
             }
           }
         }
@@ -198,6 +260,9 @@ export default {
           margin-left: -216px;
           margin-right: -108px;
           margin-top: 64px;
+          @media only screen and (max-width: 900px) {
+            font-size: 20px;
+          }
         }
       }
     }

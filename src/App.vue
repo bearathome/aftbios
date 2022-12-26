@@ -27,6 +27,7 @@ export default {
 }
 body {
   overflow: overlay;
+  overflow-x: hidden;
 }
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
@@ -39,11 +40,12 @@ body {
     margin: 0 auto;
     max-width: 1440px;
     overflow: overlay;
+    overflow-x: hidden;
     padding-top: $header-height;
   }
   .header {
     z-index: 10;
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
   }
