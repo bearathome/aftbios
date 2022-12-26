@@ -80,6 +80,7 @@ export default {
       position: relative;
       background: white;
       height: 36vw;
+      max-height: 525px;
       min-height: 318px;
       border-bottom-right-radius: 300px;
       overflow: hidden;
