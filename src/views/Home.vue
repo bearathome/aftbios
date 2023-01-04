@@ -209,7 +209,7 @@ export default {
           flex: 0 0 324px;
         }
         @media only screen and (max-width: 500px) {
-          display: none;
+          flex: 0 0 100%;
         }
       }
       .right-section {
@@ -223,8 +223,8 @@ export default {
         background: rgba(255, 249, 230, 0.9);
         padding: 72px 108px 0px 108px;
         @media only screen and (max-width: 500px) {
-          margin-left: 0;
-          margin-top: 0;
+          margin-left: -100%;
+          margin-top: 120px;
           padding: 72px;
           padding-bottom: 0;
         }
@@ -263,6 +263,11 @@ export default {
           margin-top: 64px;
           @media only screen and (max-width: 900px) {
             font-size: 20px;
+          }
+          @media only screen and (max-width: 500px) {
+            margin-left: -72px;
+            margin-right: -72px;
+            padding: 72px;
           }
         }
       }

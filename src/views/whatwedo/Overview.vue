@@ -99,9 +99,17 @@ export default {
   .content {
     position: relative;
     overflow: hidden;
+    @media only screen and (max-width: 1080px) {
+      flex-direction: column;
+      align-items: stretch;
+    }
     .content-title {
       margin-left: 60px;
       flex: 0 0 400px;
+      @media only screen and (max-width: 1080px) {
+        flex: 0 0 auto;
+        margin-bottom: 80px;
+      }
       .dot {
         background: #f8da4f;
         width: 68px;
@@ -121,6 +129,9 @@ export default {
       gap: 60px;
       padding-bottom: 160px;
       z-index: 5;
+      @media only screen and (max-width: 1080px) {
+        padding-left: 30px;
+      }
       .block {
         padding: 50px;
         gap: 20px;
@@ -141,6 +152,9 @@ export default {
         &:nth-child(2n + 1) {
           margin-left: 108px;
           background: white;
+          @media only screen and (max-width: 1080px) {
+            margin-left: 82px;
+          }
           .title {
             color: #509045;
           }
@@ -196,11 +210,16 @@ export default {
       left: -30vw;
       bottom: -30vw;
       height: 100vw;
+      max-width: 1440px;
+      max-height: 1440px;
       border-radius: 50vw;
       background-image: url("/images/whatwedo/overview2.png");
       background-size: cover;
       z-index: 0;
       opacity: 0.8;
+      @media only screen and (max-width: 900px) {
+        display: none;
+      }
     }
   }
 }

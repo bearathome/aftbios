@@ -1,36 +1,67 @@
 <template lang="pug">
-.articles-page.flex.column.align-center
-  .page-title.flex.justify-center.align-center.second-title News and Insights
-  .articles.flex.align-center.gap-24.wrap
-    .article.flex.column.align-center.justify-end(
-      v-for="article in articles",
-      :key="article.title",
-      @click="goArticle(article)"
-    )
-      .image(:style="computeArticleStyle(article)")
-      .content.flex.column.align-center.gap-6
-        .title.flex.column.align-center {{ article.title }}
-        .brief {{ article.brief }}
-      .blank
-    .empty-article(v-if="articles?.length % 2 !== 0")
+.articles-page.flex.column
+  banner(
+    title="News and Insights",
+    desc="We are delivering simple solutions to the problems of humanity.",
+    image="insight.png"
+  )
+  .page-content.flex.align-stretch.justify-start
+    .filters.flex.column.align-start.gap-18
+      .title Article Categories
+      .input-lines.flex.column.align-start.gap-18
+        .input-line
+          input#all(type="radio", name="category", value="", v-model="showType")
+          label(for="all") All
+        template(v-for="tag in tags")
+          .input-line
+            input(
+              :id="`tag-${tag}`"
+              type="radio",
+              name="category",
+              :value="tag",
+              v-model="showType")
+            label(:for="`tag-${tag}`") {{ tag }}
+    .articles.flex.column.gap-36
+      .article.flex.align-stretch.justify-start(
+        v-for="article in showArticles",
+        :key="article.title",
+        @click="goArticle(article)"
+      )
+        .image(:style="computeArticleStyle(article)")
+        .content.flex.column.justify-space-between
+          .title {{ article.title }}
+          .bottom-line.flex.justify-space-between
+            .tags.flex.gap-12
+              .tag(v-for="tag in article.tags", :key="tag") {{ tag }}
+            .date {{ article.date }}
 </template>
 
 <script>
 import { mapActions, mapGetters } from 'vuex';
+import Banner from '@/components/WWDBanner.vue';
 import info from '@/article-info.json';
 
 export default {
+  components: {
+    banner: Banner,
+  },
   data() {
     return {
       info,
       page: 1,
+      showType: '',
     };
   },
+  watch: {
+    showType() {
+      this.setArticleTag(this.showType);
+    },
+  },
   computed: {
-    ...mapGetters(['articleMap', 'articles']),
+    ...mapGetters(['articleMap', 'articles', 'showArticles', 'tags']),
   },
   methods: {
-    ...mapActions(['loadArticles']),
+    ...mapActions(['loadArticles', 'setArticleTag']),
     goArticle(article) {
       this.$router.push(`/article/${article.id}`);
     },
@@ -48,89 +79,141 @@ export default {
 
 <style lang="scss" scoped>
 .articles-page {
-  padding: 0 76px;
+  background: #FAF5E6;
   .page-title {
     flex: 0 0 200px;
   }
+  .page-content {
+    padding: 0 76px;
+    margin-top: 120px;
 
-  .articles {
-    max-width: 1440px;
-    .empty-article {
-      height: 240px;
-      flex: 1 0 40%;
+    @media only screen and (max-width: 900px) {
+      flex-direction: column;
+      align-items: stretch;
+      padding: 0 16px;
     }
-    .article {
-      cursor: pointer;
-      position: relative;
-      height: 240px;
-      flex: 1 0 40%;
-      min-width: 600px;
-      background: rgba(255, 249, 230, 0.9);
-      border-radius: 20px;
-      overflow: hidden;
+    .filters {
+      flex: 0 1 370px;
       @media only screen and (max-width: 900px) {
-        min-width: 300px;
+        flex: 0 0 auto;
+        padding-bottom: 60px;
       }
-      .image {
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 240px;
-        position: absolute;
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-position: 50% 50%;
+      .title {
+        font-size: 20px;
+        font-weight: bold;
       }
-      .content {
-        padding: 8px 0;
-        padding-bottom: 0;
-        background: rgba(208, 124, 63, 0.4);
-        z-index: 1;
-        text-align: justify;
-        .title {
-          padding: 0 20px;
-          font-size: 20px;
-        }
-        .brief {
-          color: white;
-          padding: 0 8px;
-          margin: 0;
-          max-height: 0;
-          overflow: hidden;
-          z-index: 1;
-          transition: all 0.3s ease-in-out;
-          background: rgb(208, 124, 63);
-          background: linear-gradient(
-            0deg,
-            rgba(208, 124, 63, 0.8) 0%,
-            rgba(208, 124, 63, 0.8) 30%,
-            rgba(208, 124, 63, 0) 100%
-          );
+      .input-lines {
+        @media only screen and (max-width: 900px) {
+          flex-direction: row;
+          flex-wrap: wrap;
         }
       }
+    }
 
-      .blank {
-        z-index: 1;
-        background: rgba(208, 124, 63, 0.8);
-        width: 100%;
-        flex: 0 0 20px;
-        max-height: 0;
-        transition: all 0.3s ease-in-out;
+    .articles {
+      flex: 0 1 1070px;
+      max-width: 1070px;
+      padding-bottom: 120px;
+      @media only screen and (max-width: 900px) {
+        flex: 0 0 auto;
       }
-      &:hover {
-        border: 1px solid #d07c3f;
-        .content {
-          .brief {
-            max-height: 78px;
-            padding: 0 20px;
-            padding-top: 8px;
+      .article {
+        cursor: pointer;
+        position: relative;
+        flex: 0 0 auto;
+        background: white;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.09), 0px 4px 35px rgba(0, 0, 0, 0.11);
+        transition: all .3s ease-in-out;
+        &:hover {
+          transform: translate(-5px, -5px);
+        }
+
+        @media only screen and (max-width: 720px) {
+          flex-direction: column;
+        }
+        .image {
+          top: 0;
+          left: 0;
+          flex: 0 0 400px;
+          height: 210px;
+          background-size: contain;
+          background-repeat: no-repeat;
+          background-position: 50% 50%;
+          @media only screen and (max-width: 1200px) {
+            flex: 0 0 300px;
           }
         }
-        .blank {
-          max-height: 20px;
+        .content {
+          padding: 30px 20px;
+          flex: 1;
+          .title {
+            font-size: 22px;
+          }
+          .bottom-line {
+            font-size: 14px;
+            .tags {
+              .tag {
+                color: #8B9094;
+              }
+            }
+          }
         }
       }
     }
+  }
+}
+.filters {
+  [type="radio"]:checked,
+  [type="radio"]:not(:checked) {
+      position: absolute;
+      left: -9999px;
+  }
+  [type="radio"]:checked + label,
+  [type="radio"]:not(:checked) + label
+  {
+      position: relative;
+      padding-left: 28px;
+      cursor: pointer;
+      line-height: 20px;
+      display: inline-block;
+      color: #666;
+  }
+  [type="radio"]:checked + label:before,
+  [type="radio"]:not(:checked) + label:before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 18px;
+      height: 18px;
+      border: 1px solid #ddd;
+      border-radius: 100%;
+      background: #fff;
+  }
+  [type="radio"]:checked + label:after,
+  [type="radio"]:not(:checked) + label:after {
+      content: '';
+      width: 12px;
+      height: 12px;
+      background: #D07C3F;
+      position: absolute;
+      top: 4px;
+      left: 4px;
+      border-radius: 100%;
+      -webkit-transition: all 0.2s ease;
+      transition: all 0.2s ease;
+  }
+  [type="radio"]:not(:checked) + label:after {
+      opacity: 0;
+      -webkit-transform: scale(0);
+      transform: scale(0);
+  }
+  [type="radio"]:checked + label:after {
+      opacity: 1;
+      -webkit-transform: scale(1);
+      transform: scale(1);
   }
 }
 </style>
