@@ -1,7 +1,7 @@
 <template lang="pug">
 .page-header.flex.align-center.justify-space-between
   .left.flex.align-center
-    .logo(@click="goHome") AFTBios
+    .logo(@click="goHome")
   .right.flex.align-center
     .menu.flex.column.clickable.rwd-hide(
       v-for="menu in menus",
@@ -22,10 +22,12 @@
               .desc {{ mega.desc }}
     .menu-icon.rwd-show.clickable(@click="showSlideMenu")
       vue-material-icon(name="menu", :size="20")
-    .rwd-menu-slide.rwd-show(:class="{'show': slideMenuVisible}")
+    .rwd-menu-slide.rwd-show(:class="{ show: slideMenuVisible }")
       .overlay-bg
       .rwd-menu.flex.column.align-center
-        .close-icon.clickable.flex.align-center.justify-center(@click="hideSlideMenu")
+        .close-icon.clickable.flex.align-center.justify-center(
+          @click="hideSlideMenu"
+        )
           vue-material-icon.clickable(name="close", :size="20")
         template(v-for="menu in menus")
           .menu-row.flex.align-center.justify-center.clickable(
@@ -33,11 +35,16 @@
             @click="goMenuPageRWD(menu)"
           ) {{ menu.text }}
           template(v-if="menu.text === 'What we do'")
-            .rwd-mega-menu.do.flex.column(:class="{'show': rwdMegaVisible}")
-              .item.flex.align-center.gap-12.clickable(v-for="(mega, idx) in whatWeDo")
+            .rwd-mega-menu.do.flex.column(:class="{ show: rwdMegaVisible }")
+              .item.flex.align-center.gap-12.clickable(
+                v-for="(mega, idx) in whatWeDo"
+              )
                 .mega-border
                 .mega-img(:key="idx")
-                .mega-item.flex.column(:key="mega.title", @click="goMenuPageRWD(mega)")
+                .mega-item.flex.column(
+                  :key="mega.title",
+                  @click="goMenuPageRWD(mega)"
+                )
                   .title.flex.align-center.gap-12
                     .title-text {{ mega.title }}
                     vue-material-icon(name="arrow_forward", :size="20")
@@ -190,8 +197,14 @@ export default {
   z-index: 5;
 
   .logo {
+    width: 285px;
+    height: 40px;
     cursor: pointer;
     user-select: none;
+    background-image: url("/logo.svg");
+    background-size: 285px 40px;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
   }
 
   .menu {
@@ -288,7 +301,7 @@ export default {
       width: 100vw;
       height: 100vh;
       opacity: 0.01;
-      transition: all .3s ease-in-out;
+      transition: all 0.3s ease-in-out;
     }
 
     .rwd-menu {
@@ -301,9 +314,10 @@ export default {
       width: 100vw;
       height: 100vh;
       max-width: 350px;
-      transition: all .3s ease-in-out;
+      transition: all 0.3s ease-in-out;
       background: white;
-      .close-icon, .menu-row {
+      .close-icon,
+      .menu-row {
         flex: 0 0 90px;
       }
     }
@@ -321,7 +335,7 @@ export default {
   .rwd-mega-menu {
     overflow: hidden;
     max-height: 0;
-    transition: all .3s ease-in-out;
+    transition: all 0.3s ease-in-out;
     &.show {
       overflow: initial;
       max-height: 1020px;
