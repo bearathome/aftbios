@@ -14,7 +14,11 @@
         .mega-menu.do.flex.column(v-if="menu.text === 'What we do'")
           .item.flex.align-center.gap-12(v-for="(mega, idx) in whatWeDo")
             .mega-border
-            .mega-img(:key="idx")
+            .mega-img(
+              :key="idx",
+              :style="{ 'background-image': 'url(/images/whatwedo/' + mega.image }",
+              :class="{ right: mega.right }"
+            )
             .mega-item.flex.column(:key="mega.title", @click="goPage(mega)")
               .title.flex.align-center.gap-12
                 .title-text {{ mega.title }}
@@ -40,7 +44,11 @@
                 v-for="(mega, idx) in whatWeDo"
               )
                 .mega-border
-                .mega-img(:key="idx")
+                .mega-img(
+                  :key="idx",
+                  :style="{ 'background-image': 'url(/images/whatwedo/' + mega.image }",
+                  :class="{ right: mega.right }"
+                )
                 .mega-item.flex.column(
                   :key="mega.title",
                   @click="goMenuPageRWD(mega)"
@@ -113,31 +121,39 @@ export default {
           title: 'Overview',
           desc: 'Solving important health and agricultural problems facing the world today using next-generation RNA technologie',
           link: '/what-we-do/overview',
+          image: 'overview.png',
         },
         {
           title: 'Vaccines and Therapeutics',
           desc: 'mRNA has demonstrated its potential to be a leading vaccine candidate, and we are committed to delivering mRNA vaccines all over the world',
           link: '/what-we-do/vaccines-and-therapeutics',
+          image: 'vaccines.jpg',
         },
         {
           title: 'RNA Biocontrols',
           desc: 'RNA is a biological molecule found in almost all living things',
           link: '/what-we-do/RNA-Biocontrol',
+          image: 'formulation.png',
+          right: true,
         },
         {
           title: 'RNA Formulation strategies',
           desc: 'More efficient RNA vaccine delivery',
           link: '/what-we-do/RNA-Formulation-strategies',
+          image: 'RNAcontrol.png',
+          right: true,
         },
         {
           title: 'Bioanalytical platform development',
           desc: 'Standalone, simple and programmable device for every user',
           link: '/what-we-do/Bioanalytical-platform-development',
+          image: 'bioanalytical.jpg',
         },
         {
           title: 'Molecular diagnostics',
           desc: 'Our low-cost, single-enzyme-based detection method, versatility, compatibility with existing qPCR systems as well as point-of-care-technology devices will rapidly respond to emerging pandemics',
           link: '/what-we-do/Molecular-diagnostics',
+          image: 'molecular.png',
         },
       ],
       hideMenu: false,
@@ -195,6 +211,9 @@ export default {
   box-shadow: 0px 4px 26px 1px rgba(0, 0, 0, 0.12);
   padding: 0 76px;
   z-index: 5;
+  @media only screen and (max-width: 600px) {
+    padding: 0 30px;
+  }
 
   .logo {
     width: 285px;
@@ -205,6 +224,11 @@ export default {
     background-size: 285px 40px;
     background-repeat: no-repeat;
     background-position: 50% 50%;
+    @media only screen and (max-width: 600px) {
+      width: 200px;
+      height: 28px;
+      background-size: 200px 28px;
+    }
   }
 
   .menu {
@@ -270,6 +294,11 @@ export default {
         flex: 0 0 40px;
         height: 40px;
         background: #ccc;
+        background-size: cover;
+        border-radius: 2px;
+        &.right {
+          background-position: 80% 50%;
+        }
       }
       .mega-item {
         padding: 0 24px;
@@ -356,6 +385,11 @@ export default {
         flex: 0 0 40px;
         height: 40px;
         background: #ccc;
+        background-size: cover;
+        border-radius: 2px;
+        &.right {
+          background-position: 80% 50%;
+        }
       }
       .mega-item {
         padding: 0 24px;

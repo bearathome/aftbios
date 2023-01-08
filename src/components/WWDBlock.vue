@@ -4,7 +4,7 @@
   :style="blockStyle"
 )
   .content.flex.column.align-start
-    .title(:class="{ small: smallTitle }") {{ title }}
+    .title(v-if="title !== ''", :class="{ small: smallTitle }") {{ title }}
     .desc(v-for="line in desc") {{ line }}
   .image(
     v-if="image !== undefined && image !== ''",
@@ -105,6 +105,7 @@ export default {
   grid-gap: 30px;
   gap: 72px;
   padding: 87px;
+
   .content {
     grid-column: 1 / 8;
     gap: 40px;
@@ -123,6 +124,7 @@ export default {
     grid-column: 8 / 13;
     border-radius: 30px;
     background-size: cover;
+    background-position: 50% 50%;
     min-height: 484px;
   }
   &.invert {
@@ -138,6 +140,41 @@ export default {
   &.no-image {
     .content {
       grid-column: 1 / 13;
+    }
+  }
+
+  @media only screen and (max-width: 900px) {
+    padding: 30px !important;
+    border-radius: 0 !important;
+    margin: 0 !important;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    .content {
+      flex: 0 0 auto;
+    }
+    .image {
+      flex: 0 0 50vw;
+      min-height: 0;
+      background-size: cover;
+    }
+    &.invert {
+      .content {
+        flex: 0 0 auto;
+      }
+      .image {
+        flex: 0 0 50vw;
+      }
+    }
+  }
+  @media only screen and (max-width: 600px) {
+    .image {
+      flex: 0 0 calc(100vw - 60px);
+    }
+    &.invert {
+      .image {
+        flex: 0 0 calc(100vw - 60px);
+      }
     }
   }
 }

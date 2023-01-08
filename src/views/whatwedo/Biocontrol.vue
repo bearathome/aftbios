@@ -1,26 +1,23 @@
 <template lang="pug">
 .what-we-do-rna-control.flex.column(v-if="ready")
-  banner(
-    title="RNA Biocontrol",
-    :desc="desc"
-    image="formulation.png")
+  banner(title="RNA Biocontrol", :desc="desc", image="formulation.png")
   breadcrumb(page="RNA Biocontrol")
   .blocks.flex.column
     block(
-      data-aos="fade-up"
-      v-for="(data, idx) in datas"
-      :key="idx"
-      :title="data.title"
-      :desc="data.desc"
-      :image="data.image"
-      :invert="data.invert"
-      :background="data.background"
-      :has-radius="data.hasRadius"
-      :radius-type="data.radiusType"
-      :top="data.top"
-      :color="data.color"
-      :padding-bottom="data.pbottom"
-      :padding-top="data.ptop"
+      data-aos="fade-up",
+      v-for="(data, idx) in datas",
+      :key="idx",
+      :title="data.title",
+      :desc="data.desc",
+      :image="data.image",
+      :invert="data.invert",
+      :background="data.background",
+      :has-radius="data.hasRadius",
+      :radius-type="data.radiusType",
+      :top="data.top",
+      :color="data.color",
+      :padding-bottom="data.pbottom",
+      :padding-top="data.ptop",
       :zindex="data.zindex"
     )
 </template>
@@ -45,7 +42,7 @@ export default {
           desc: [
             'RNA technology can help protect our crops against pests and diseases safely and sustainably. RNA are molecules found in most, if not all, living organisms and, like all organic matter, are readily recyclable. Unlike inorganic pesticides that persist long in our environment, RNA will degrade and have a low environmental impact.',
           ],
-          image: 'vaccines1.png',
+          image: 'biocontrol.jpg',
           invert: true,
           background: 'transparent',
           hasRadius: false,
@@ -57,7 +54,7 @@ export default {
           desc: [
             'Most pesticides are hazardous, killing insects and organisms beneficial to our ecosystem – RNA pesticides are designed to target only pests of interest and not harm any other insect. However, substantially challenge the deployment of this technology so that people all over the world can access them.',
           ],
-          image: 'vaccines1.png',
+          image: 'biocontrol2.jpg',
           invert: false,
           background: '#FCFAF3',
           hasRadius: true,

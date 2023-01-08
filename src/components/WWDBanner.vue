@@ -21,12 +21,27 @@ export default {
       type: String,
       required: true,
     },
+    bottom: {
+      type: Boolean,
+      default: false,
+    },
+    mask: {
+      type: Boolean,
+      default: false,
+    },
   },
   computed: {
     bgStyle() {
-      return {
+      const ret = {
         'background-image': `url(/images/whatwedo/${this.image})`,
       };
+      if (this.bottom) {
+        ret['background-position'] = '50% 70%';
+      }
+      if (this.mask) {
+        ret.mask = 'linear-gradient(to bottom, transparent 10%, black);';
+      }
+      return ret;
     },
   },
 };

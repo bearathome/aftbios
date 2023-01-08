@@ -110,18 +110,30 @@ export default {
         flex: 0 0 auto;
         margin-bottom: 80px;
       }
+      @media only screen and (max-width: 600px) {
+        margin-left: 20px;
+        margin-bottom: 60px;
+      }
       .dot {
         background: #f8da4f;
         width: 68px;
         height: 68px;
         flex: 0 0 68px;
         border-radius: 34px;
+        @media only screen and (max-width: 600px) {
+          width: 52px;
+          height: 52px;
+          flex: 0 0 52px;
+        }
       }
       .txt {
         font-size: 50px;
         font-weight: 400;
         margin-left: -30px;
         margin-top: 20px;
+        @media only screen and (max-width: 600px) {
+          font-size: 28px;
+        }
       }
     }
     .blocks {
@@ -131,6 +143,10 @@ export default {
       z-index: 5;
       @media only screen and (max-width: 1080px) {
         padding-left: 30px;
+      }
+      @media only screen and (max-width: 600px) {
+        gap: 30px;
+        padding-left: 20px;
       }
       .block {
         padding: 50px;
@@ -148,6 +164,9 @@ export default {
             margin-left: 100px;
           }
         }
+        @media only screen and (max-width: 600px) {
+          padding: 20px;
+        }
 
         &:nth-child(2n + 1) {
           margin-left: 108px;
@@ -155,16 +174,19 @@ export default {
           @media only screen and (max-width: 1080px) {
             margin-left: 82px;
           }
+          @media only screen and (max-width: 600px) {
+            margin-left: 0;
+          }
           .title {
-            color: #509045;
+            color: #d07c3f;
           }
           .splitter {
             background: #d3a271;
           }
           .link {
-            color: #509045;
+            color: #d07c3f;
             .link-icon {
-              border: 1px solid #509045;
+              border: 1px solid #d07c3f;
             }
           }
         }
@@ -184,6 +206,9 @@ export default {
 
         .title {
           font-size: 30px;
+          @media only screen and (max-width: 600px) {
+            font-size: 20px;
+          }
         }
         .splitter {
           width: 80px;

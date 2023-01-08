@@ -2,25 +2,26 @@
 .what-we-do-rna-control.flex.column(v-if="ready")
   banner(
     title="RNA Formulation strategies (non-viral RNA delivery)",
-    :desc="desc"
-    image="RNAcontrol.png")
+    :desc="desc",
+    image="RNAcontrol.png"
+  )
   breadcrumb(page="RNA Formulation strategies")
   .blocks.flex.column
     block(
-      data-aos="fade-up"
-      v-for="(data, idx) in datas"
-      :key="idx"
-      :title="data.title"
-      :desc="data.desc"
-      :image="data.image"
-      :invert="data.invert"
-      :background="data.background"
-      :has-radius="data.hasRadius"
-      :radius-type="data.radiusType"
-      :top="data.top"
-      :color="data.color"
-      :padding-bottom="data.pbottom"
-      :padding-top="data.ptop"
+      data-aos="fade-up",
+      v-for="(data, idx) in datas",
+      :key="idx",
+      :title="data.title",
+      :desc="data.desc",
+      :image="data.image",
+      :invert="data.invert",
+      :background="data.background",
+      :has-radius="data.hasRadius",
+      :radius-type="data.radiusType",
+      :top="data.top",
+      :color="data.color",
+      :padding-bottom="data.pbottom",
+      :padding-top="data.ptop",
       :zindex="data.zindex"
     )
 </template>
@@ -54,7 +55,7 @@ export default {
           desc: [
             'We are developing safer and more affordable nanoparticles. We are also improving and simplifying processes for large-scale production of these critical products.',
           ],
-          image: 'vaccines1.png',
+          image: 'formulation.jpg',
           invert: true,
           background: '#FCFAF3',
           hasRadius: true,

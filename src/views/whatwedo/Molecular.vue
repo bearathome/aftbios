@@ -1,26 +1,23 @@
 <template lang="pug">
 .what-we-do-rna-control.flex.column(v-if="ready")
-  banner(
-    title="Molecular diagnostics",
-    :desc="desc"
-    image="molecular.png")
+  banner(title="Molecular diagnostics", :desc="desc", image="molecular.png")
   breadcrumb(page="Molecular diagnostics")
   .blocks.flex.column
     block(
-      data-aos="fade-up"
-      v-for="(data, idx) in datas"
-      :key="idx"
-      :title="data.title"
-      :desc="data.desc"
-      :image="data.image"
-      :invert="data.invert"
-      :background="data.background"
-      :has-radius="data.hasRadius"
-      :radius-type="data.radiusType"
-      :top="data.top"
-      :color="data.color"
-      :padding-bottom="data.pbottom"
-      :padding-top="data.ptop"
+      data-aos="fade-up",
+      v-for="(data, idx) in datas",
+      :key="idx",
+      :title="data.title",
+      :desc="data.desc",
+      :image="data.image",
+      :invert="data.invert",
+      :background="data.background",
+      :has-radius="data.hasRadius",
+      :radius-type="data.radiusType",
+      :top="data.top",
+      :color="data.color",
+      :padding-bottom="data.pbottom",
+      :padding-top="data.ptop",
       :zindex="data.zindex"
     )
 </template>
@@ -45,7 +42,7 @@ export default {
           desc: [
             'Unlike antibody-based diagnostics, this nucleic acid-based diagnostic can be readily adapted and utilized in diagnosing a variety of animal and plant pathogens with the same kit by substituting only designed “oligonucleotide primers” for the target pathogen without the need to optimize the method further.',
           ],
-          image: 'vaccines1.png',
+          image: 'molecular.jpg',
           invert: true,
           background: 'transparent',
           hasRadius: false,

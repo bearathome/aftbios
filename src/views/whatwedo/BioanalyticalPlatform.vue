@@ -2,25 +2,28 @@
 .what-we-do-rna-control.flex.column(v-if="ready")
   banner(
     title="Bioanalytical platform development",
-    :desc="desc"
-    image="bioanalytical.png")
+    :desc="desc",
+    image="bioanalytical.jpg",
+    bottom,
+    mask
+  )
   breadcrumb(page="RNA Formulation strategies")
   .blocks.flex.column
     block(
-      data-aos="fade-up"
-      v-for="(data, idx) in datas"
-      :key="idx"
-      :title="data.title"
-      :desc="data.desc"
-      :image="data.image"
-      :invert="data.invert"
-      :background="data.background"
-      :has-radius="data.hasRadius"
-      :radius-type="data.radiusType"
-      :top="data.top"
-      :color="data.color"
-      :padding-bottom="data.pbottom"
-      :padding-top="data.ptop"
+      data-aos="fade-up",
+      v-for="(data, idx) in datas",
+      :key="idx",
+      :title="data.title",
+      :desc="data.desc",
+      :image="data.image",
+      :invert="data.invert",
+      :background="data.background",
+      :has-radius="data.hasRadius",
+      :radius-type="data.radiusType",
+      :top="data.top",
+      :color="data.color",
+      :padding-bottom="data.pbottom",
+      :padding-top="data.ptop",
       :zindex="data.zindex"
     )
 </template>
@@ -45,7 +48,7 @@ export default {
           desc: [
             'We have designed a comprehensive platform for developing easy-to-use and adaptive point-of-care technologies. The developed technologies will enable early detection of existing and emerging disease threats. Our design imperative is simplicity – so that our developed platform and technologies would suit everyone’s needs, novice or professional.',
           ],
-          image: 'vaccines1.png',
+          image: 'bioanalytical2.jpg',
           invert: true,
           background: 'transparent',
           hasRadius: false,
