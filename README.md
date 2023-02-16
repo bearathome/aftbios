@@ -1,4 +1,5 @@
-# aft
+# aft-beta
+It's the beta repository of main site to test article editing.
 
 ## Project setup
 ```
