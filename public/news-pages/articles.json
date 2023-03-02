@@ -1,5 +1,18 @@
 [
   {
+    "id": 3,
+    "date": "2023/3/2",
+    "title": "Testing article",
+    "brief": "brief statement",
+    "image": "asbcd6.webp",
+    "file": "testing.md",
+    "tags": [
+      "Test",
+      "News",
+      "Paper"
+    ]
+  },
+  {
     "id": 2,
     "date": "2022/12/21",
     "title": "A novel sustainable platform for scaled manufacturing of double-stranded RNA biopesticides",
