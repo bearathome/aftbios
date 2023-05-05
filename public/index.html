@@ -9,6 +9,29 @@
     content="We are passionate about providing simple, effective and affordable solutions to help make RNA-based products accessible to all corners of the world. We will deliver innovative and low-resource RNA technologies and approaches to help solve some of the most significant health and food challenges.">
   <link rel="icon" href="/favicon.svg">
   <title>AFTBios</title>
+
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-5B96DGV7K8"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+
+  const disableStr = `ga-disable-G-5B96DGV7K8`
+  function gaOptout() {
+    document.cookie = disableStr + '=true; expires=Thu, 31 Dec 2099 23:59:59 UTC; path=/';
+    window[disableStr] = true;
+  }
+  function gaOptin() {
+    document.cookie = disableStr + '=true; expires=Thu, 31 Dec 1980 00:00:00 UTC; path=/';
+    delete window[disableStr]
+    gtag('js', new Date());
+    gtag('config', 'G-5B96DGV7K8');
+  }
+  window.gaOptout = gaOptout
+  window.gaOptin = gaOptin
+  gaOptout()
+
+</script>
 </head>
 
 <body>
