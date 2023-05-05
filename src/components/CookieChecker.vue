@@ -63,7 +63,7 @@ export default {
   position: fixed;
   bottom: 20px;
   left: 20px;
-  width: 100vw;
+  width: calc(100vw - 40px);
   max-width: 350px;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
   padding: 20px;
@@ -71,6 +71,7 @@ export default {
   opacity: 0.01;
   pointer-events: none;
   transition: all .3s ease-in-out;
+  z-index: 1000;
   &.show {
     opacity: 1;
     pointer-events: all;
@@ -99,5 +100,11 @@ export default {
       }
     }
   }
+
+  @media only screen and (max-width: 500px) {
+    left: 50%;
+    transform: translateX(-50%);
+  }
 }
+
 </style>
