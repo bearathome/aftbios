@@ -4,16 +4,19 @@
   .main-page
     router-view
     page-footer
+  cookie-checker
 </template>
 
 <script>
 import PageHeader from '@/components/PageHeader.vue';
 import PageFooter from '@/components/PageFooter.vue';
+import CookieChecker from '@/components/CookieChecker.vue';
 
 export default {
   components: {
     PageHeader,
     PageFooter,
+    CookieChecker,
   },
 };
 </script>
