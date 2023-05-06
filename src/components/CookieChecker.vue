@@ -2,7 +2,11 @@
 .cookie-checker.flex.column.gap-12(:class="{'show': show}")
   .title.bold This website uses cookies
   .splitter
-  .content {{ content }}
+  .content.flex.column.gap-6.align-start
+    span {{ content }}
+    a.iubenda-black.iubenda-noiframe.iubenda-embed.iubenda-noiframe(
+      href="https://www.iubenda.com/privacy-policy/96550174"
+      title="Privacy Policy") Privacy Policy
   .splitter
   .buttons.flex.align-center.justify-end.gap-12
     .button.deny.clickable(@click="gaOptout") Deny
@@ -16,13 +20,14 @@ export default {
     return {
       content: 'We use cookies to understand how visitors interact with websites by collecting and reporting information anonymously.',
       show: true,
+      version: 1,
     };
   },
   methods: {
     gaOptin() {
       const now = new Date();
       const expire = new Date(now.getTime() + 7 * 86400 * 1000);
-      document.cookie = `cookieUse=1;expires=${expire.toUTCString()};path=/`;
+      document.cookie = `cookieUse=${this.version};expires=${expire.toUTCString()};path=/`;
       window.gaOptin();
       this.checkShow();
     },
@@ -31,7 +36,7 @@ export default {
       const expire = new Date(now.getTime() + 7 * 86400 * 1000);
       document.cookie = `cookieUse=0;expires=${expire.toUTCString()};path=/`;
       window.gaOptout();
-      this.checkShow();
+      this.show = false;
     },
     parseCookie(str) {
       return str
@@ -46,10 +51,21 @@ export default {
     },
     checkShow() {
       const cookie = this.parseCookie(document?.cookie || '');
-      this.show = (cookie.cookieUse === undefined);
-      if (parseInt(cookie.cookieUse, 10) === 1) {
+      if (parseInt(cookie.cookieUse, 10) === this.version) {
         window.gaOptin();
+        this.show = false;
+      } else {
+        this.show = true;
       }
+      if (this.show) {
+        this.setupPrivacy();
+      }
+    },
+    setupPrivacy() {
+      const s = document.createElement('script');
+      const tag = document.getElementsByTagName('script')[0];
+      s.src = 'https://cdn.iubenda.com/iubenda.js';
+      tag.parentNode.insertBefore(s, tag);
     },
   },
   mounted() {
