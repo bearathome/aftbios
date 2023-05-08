@@ -1,5 +1,17 @@
 [
   {
+    "id": 4,
+    "date": "2023/5/8",
+    "title": "Testing New Article Cat",
+    "brief": "brief statement",
+    "image": "article-test.jpeg",
+    "file": "new-article.md",
+    "tags": [
+      "Cat",
+      "Test"
+    ]
+  },
+  {
     "id": 3,
     "date": "2023/3/2",
     "title": "Testing article",
