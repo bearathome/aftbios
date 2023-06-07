@@ -50,16 +50,17 @@ export default {
         }, {});
     },
     checkShow() {
-      const cookie = this.parseCookie(document?.cookie || '');
-      if (parseInt(cookie.cookieUse, 10) === this.version) {
-        window.gaOptin();
-        this.show = false;
-      } else {
-        this.show = true;
-      }
-      if (this.show) {
-        this.setupPrivacy();
-      }
+      // const cookie = this.parseCookie(document?.cookie || '');
+      // if (parseInt(cookie.cookieUse, 10) === this.version) {
+      //   window.gaOptin();
+      //   this.show = false;
+      // } else {
+      //   this.show = true;
+      // }
+      // if (this.show) {
+      //   this.setupPrivacy();
+      // }
+      this.setupPrivacy();
     },
     setupPrivacy() {
       const s = document.createElement('script');
