@@ -29,7 +29,7 @@ export default {
       const expire = new Date(now.getTime() + 7 * 86400 * 1000);
       document.cookie = `cookieUse=${this.version};expires=${expire.toUTCString()};path=/`;
       window.gaOptin();
-      this.checkShow();
+      this.show = false;
     },
     gaOptout() {
       const now = new Date();
