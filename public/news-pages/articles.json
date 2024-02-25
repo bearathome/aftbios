@@ -1,27 +1,24 @@
 [
   {
     "id": 4,
-    "date": "2023/5/8",
-    "title": "Testing New Article Cat",
-    "brief": "brief statement",
-    "image": "article-test.jpeg",
-    "file": "new-article.md",
+    "date": "2024/02/24",
+    "title": "Introducing Our Point of Care Diagnostic Platform",
+    "brief": "AFTBios is excited to unveil the prototype stage of our innovative Point of Care Diagnostic platform. This pioneering project marks a significant milestone in disease detection and management. By integrating cutting-edge isothermal amplification of nucleic acids with advanced miniaturisation techniques, our platform is set to redefine rapid, accurate, and accessible diagnostic solutions within the healthcare sector.",
+    "image": "care-diagnostic-platform.jpg",
+    "file": "care-diagnostic-platform.md",
     "tags": [
-      "Cat",
-      "Test"
+      "News"
     ]
   },
   {
     "id": 3,
-    "date": "2023/3/2",
-    "title": "Testing article",
-    "brief": "brief statement",
-    "image": "asbcd6.webp",
-    "file": "testing.md",
+    "date": "2024/02/21",
+    "title": "MolSwift: A Leap Forward in RNA Therapeutics",
+    "brief": "We are proud to introduce MolSwift, our innovative prediction platform for therapeutic modified siRNA. MolSwift represents a significant leap forward in the field of RNA therapeutics, offering a powerful tool for the design and optimization of siRNA molecules for targeted gene silencing.",
+    "image": "molswift.jpg",
+    "file": "molswift.md",
     "tags": [
-      "Test",
-      "News",
-      "Paper"
+      "News"
     ]
   },
   {

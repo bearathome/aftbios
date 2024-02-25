@@ -6,7 +6,13 @@
   .content.flex.column.align-start
     .title(v-if="title !== ''", :class="{ small: smallTitle }") {{ title }}
     .desc(v-for="line in desc") {{ line }}
+    .flex.align-center.gap-12.more-link.clickable.link(
+      @click="goMoreLink"
+      v-if="moreLink !== ''")
+      span {{ moreText }}
+      .link-icon.flex.align-center.justify-center(:style="linkItemStyle") >
   .image(
+    :class="{'small': smallImage}"
     v-if="image !== undefined && image !== ''",
     :style="{ 'background-image': 'url(/images/whatwedo/' + image }"
   )
@@ -67,8 +73,27 @@ export default {
       type: Boolean,
       default: false,
     },
+    smallImage: {
+      type: Boolean,
+      default: false,
+    },
+    moreLink: {
+      type: String,
+      default: '',
+    },
+    moreText: {
+      type: String,
+      default: 'Learn More',
+    },
   },
   computed: {
+    linkItemStyle() {
+      const ret = {};
+      if (this.color && this.color !== '') {
+        ret['border-color'] = `${this.color} !important`;
+      }
+      return ret;
+    },
     blockStyle() {
       const ret = {
         background: this.background,
@@ -95,6 +120,13 @@ export default {
       return ret;
     },
   },
+  methods: {
+    goMoreLink() {
+      if (this.moreLink) {
+        this.$router.push(this.moreLink);
+      }
+    },
+  },
 };
 </script>
 
@@ -118,6 +150,13 @@ export default {
     }
     .desc {
       font-size: 20px;
+    }
+    .link-icon {
+      border: 1px solid black;
+      border-radius: 19px;
+      width: 38px;
+      height: 38px;
+      flex: 0 0 38px;
     }
   }
   .image {
