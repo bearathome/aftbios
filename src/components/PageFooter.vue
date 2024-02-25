@@ -7,13 +7,14 @@
       v-for="d in whatWeDo" :key="d.title") {{ d.title }}
   .quick-links.flex.column.align-start
     .title Quick Links
-    .link button name
+    .link Careers
+    .link Contact
   .join-us.flex.column.align-start
     .title Join us on Social
     .icon-link.flex.align-center
-      img(:src="fbImg")
-      img(:src="twitterImg")
-  .rights Privacy Policy All rights reserved. 2022 AFT
+      img.clickable(:src="fbImg", @click="$goLink(fbLink)")
+      img.clickable(:src="twitterImg", @click="$goLink(twitterLink)")
+  .rights.link-text.clickable(@click="goPrivatePage") Privacy Policy All rights reserved. 2022 AFT
 </template>
 
 <script>
@@ -58,6 +59,8 @@ export default {
           link: '/what-we-do/Molecular-diagnostics',
         },
       ],
+      fbLink: 'https://www.facebook.com/profile.php?id=61556922231111',
+      twitterLink: 'https://twitter.com/aftbios',
     };
   },
   methods: {
@@ -65,6 +68,9 @@ export default {
       if (url) {
         this.$router.push(url);
       }
+    },
+    goPrivatePage() {
+      this.$router.push('/privacy');
     },
   },
 };

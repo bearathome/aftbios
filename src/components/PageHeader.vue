@@ -24,6 +24,19 @@
                 .title-text {{ mega.title }}
                 vue-material-icon(name="arrow_forward", :size="20")
               .desc {{ mega.desc }}
+        .mega-menu.do.flex.column(v-if="menu.text === 'About Us'")
+          .item.flex.align-center.gap-12(v-for="(mega, idx) in aboutUs")
+            .mega-border
+            .mega-img(
+              :key="idx",
+              :style="{ 'background-image': 'url(/images/aboutus/' + mega.image }",
+              :class="{ right: mega.right }"
+            )
+            .mega-item.flex.column(:key="mega.title", @click="goPage(mega)")
+              .title.flex.align-center.gap-12
+                .title-text {{ mega.title }}
+                vue-material-icon(name="arrow_forward", :size="20")
+              .desc {{ mega.desc }}
     .menu-icon.rwd-show.clickable(@click="showSlideMenu")
       vue-material-icon(name="menu", :size="20")
     .rwd-menu-slide.rwd-show(:class="{ show: slideMenuVisible }")
@@ -74,7 +87,6 @@ export default {
         },
         {
           text: 'About Us',
-          link: '/about',
         },
         {
           text: 'News and Insights',
@@ -82,38 +94,7 @@ export default {
         },
         {
           text: 'Stakeholders',
-        },
-      ],
-      homeMega: [
-        {
-          title: 'Overview',
-          desc: 'Solving important health and agricultural problems facing the world today using next-generation RNA technologie',
-          link: '/what-we-do/overview',
-        },
-        {
-          title: 'Vaccines and Therapeutics',
-          desc: 'mRNA has demonstrated its potential to be a leading vaccine candidate, and we are committed to delivering mRNA vaccines all over the world',
-          link: '/what-we-do/vaccines-and-therapeutics',
-        },
-        {
-          title: 'RNA Biocontrols',
-          desc: 'RNA is a biological molecule found in almost all living things',
-          link: '/what-we-do/RNA-Biocontrol',
-        },
-        {
-          title: 'RNA Formulation strategies',
-          desc: 'More efficient RNA vaccine delivery',
-          link: '/what-we-do/RNA-Formulation-strategies',
-        },
-        {
-          title: 'Bioanalytical platform development',
-          desc: 'Standalone, simple and programmable device for every user',
-          link: '/what-we-do/Bioanalytical-platform-development',
-        },
-        {
-          title: 'Molecular diagnostics',
-          desc: 'Our low-cost, single-enzyme-based detection method, versatility, compatibility with existing qPCR systems as well as point-of-care-technology devices will rapidly respond to emerging pandemics',
-          link: '/what-we-do/Molecular-diagnostics',
+          link: '/stakeholders',
         },
       ],
       whatWeDo: [
@@ -156,6 +137,32 @@ export default {
           image: 'molecular.png',
         },
       ],
+      aboutUs: [
+        {
+          title: 'Our Story',
+          desc: 'Welcome to AFTBios, where we harness nature with AI-driven biotechnology to revolutionise our food system and healthcare.',
+          link: '/about/story',
+          image: 'story.jpg',
+        },
+        {
+          title: 'Our Team: The Foundation of Our Success',
+          desc: 'A compassionate and diverse team of experienced professionals',
+          link: '/about/team',
+          image: 'team.jpg',
+        },
+        {
+          title: 'Careers at AFTBios',
+          desc: 'Join Our Mission to Innovate for a Better Tomorrow',
+          link: '/about/careers',
+          image: 'career.jpg',
+        },
+        {
+          title: 'Partnering with AFTBios',
+          desc: 'Together, We Can Achieve More',
+          link: '/about/partnering',
+          image: 'partner.jpg',
+        },
+      ],
       hideMenu: false,
 
       slideMenuVisible: false,
@@ -176,6 +183,7 @@ export default {
         this.hideMenu = false;
       }, 100);
       if (mega.link) {
+        console.log(mega.link);
         this.$router.push(mega.link);
       }
     },

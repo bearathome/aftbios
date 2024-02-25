@@ -5,7 +5,7 @@
   .content.flex.column.gap-6.align-start
     span {{ content }}
     a.iubenda-black.iubenda-noiframe.iubenda-embed.iubenda-noiframe(
-      href="https://www.iubenda.com/privacy-policy/96550174"
+      href="/cookie-privacy.html"
       title="Privacy Policy") Privacy Policy
   .splitter
   .buttons.flex.align-center.justify-end.gap-12
