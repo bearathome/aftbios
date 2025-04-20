@@ -32,8 +32,7 @@ jobs:
       - name: Build
         run: |
           npm run build
-          mv dist aftbios-dist
-          tar -zcvf dist.tgz aftbios-dist
+          tar -zcvf dist.tgz dist
       - name: Archive production artifacts
         uses: actions/upload-artifact@v4
         with:
