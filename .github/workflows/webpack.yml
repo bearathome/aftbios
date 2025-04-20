@@ -4,12 +4,6 @@ on:
   push:
     branches: ["main"]
 
-# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-
 # Allow one concurrent deployment
 concurrency:
   group: "pages"
@@ -30,30 +24,58 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+          cache-dependency-path: package-lock.json
+      - name: Install dependencies
+        run: |
+          npm install
 
       - name: Build
         run: |
-          yarn install
-          yarn build
-          mv dist _site
-
+          npm run build
+          mv dist aftbios-dist
+          tar -zcvf dist.tgz aftbios-dist
       - name: Archive production artifacts
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-artifact@v4
+        with:
+          name: dist
+          path: |
+            dist.tgz
 
   deploy:
-    # Add a dependency to the build job
-    needs: build
+    needs: [build]
 
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+    strategy:
+      matrix:
+        node-version: [16.x]
 
     # Specify runner + deployment step
     runs-on: ubuntu-latest
     steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v1
-      - uses: geekyeggo/delete-artifact@v2
+      - name: Download dist
+        uses: actions/download-artifact@v4
         with:
-          name: github-pages
+          name: dist
+
+      - name: Rename filename
+        run: |
+          mv dist.tgz aftbios.com.tgz
+
+      - name: Copy files to remote server
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{ vars.GCP_HOST }}
+          username: ${{ secrets.GCP_USER }}
+          key: ${{ secrets.GCP_SECRET }}
+          source: "aftbios.com.tgz"
+          target: "/tmp"
+
+      - name: SSH commands
+        uses: appleboy/ssh-action@v0.1.8
+        with:
+          host: ${{ secrets.GCP_HOST }}
+          username: ${{ secrets.GCP_USER }}
+          key: ${{ secrets.GCP_SECRET }}
+          script: |
+            cd ~/actions/aftbios.com
+            ./update.sh /tmp/aftbios.com.tgz
