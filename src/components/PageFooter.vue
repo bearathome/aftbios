@@ -7,8 +7,8 @@
       v-for="d in whatWeDo" :key="d.title") {{ d.title }}
   .quick-links.flex.column.align-start
     .title Quick Links
-    .link Careers
-    .link Contact
+    .link(@click="goPage('/careers')") Careers
+    .link(@click="goPage('/contact')") Contact
   .join-us.flex.column.align-start
     .title Join us on Social
     .icon-link.flex.align-center
