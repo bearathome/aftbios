@@ -43,5 +43,18 @@
     "tags": [
       "Paper"
     ]
-  }
+  },
+  {
+  "id": 5,
+  "date": "2025/04/28",
+  "title": "RNA Logic Gates for Smart, Sprayable Crops",
+  "brief": "Announcing our latest innovation in RNA-based logic circuits for agriculture, enabling smart environmental response control.",
+  "image": "logic-gate-hero.png",
+  "file": "rna-logic-gates.md",
+  "tags": [
+    "News",
+    "Innovation"
+  ]
+}
+
 ]
