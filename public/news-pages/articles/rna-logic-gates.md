@@ -19,6 +19,7 @@ This avoids unnecessary energy expenditure when only a single mild stress is pre
 
 ![OR Logic Gate](/public/news-images/logic-gate-and.png)
 ![AND](/aftbios/news-images/logic-gate-and.png)
+![AND Logic Gate](../news-images/logic-gate-and.png)
 *AND gate: activates only when both input RNAs are detected.*
 
 ### ✅ OR Gate: Rapid Response to Any Stress
