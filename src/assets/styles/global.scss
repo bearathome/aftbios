@@ -4,3 +4,13 @@ img {
   max-width: 100%;
   height: auto;
 }
+/* mobile-safe reset for markdown images */
+.markdown-body img, /* add the class you wrap markdown with */
+article img {       /* or the wrapper element of your article */
+  max-width: 100%;
+  height: auto;
+  display: block;        /* prevents collapsing in flex rows    */
+  object-fit: contain;   /* avoids distortion                   */
+  margin: 0 auto;        /* centres images if desired           */
+}
+
