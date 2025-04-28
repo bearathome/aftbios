@@ -25,7 +25,7 @@ This avoids unnecessary energy expenditure when only a single mild stress is pre
 An **OR gate** allows the plant to respond **if either drought or pest stress occurs**.  
 This ensures **fast protective action** whenever a threat is detected, even if only one stress signal is present.
 
-![AND Logic Gate](../news-images/logic-gate-or.png)
+![OR Logic Gate](../news-images/logic-gate-or.png)
 *OR gate: activates if either input RNA is detected.*
 
 ---
