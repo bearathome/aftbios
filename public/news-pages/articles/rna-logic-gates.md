@@ -18,7 +18,7 @@ An **AND gate** ensures that a defensive action, like pest resistance, is trigge
 This avoids unnecessary energy expenditure when only a single mild stress is present.
 
 ![OR Logic Gate](/public/news-images/logic-gate-and.png)
-![AND](/aftbios/news-images/logic-gate-and.png)
+![OR Logic Gate](/public/news-images/logic-gate-and.jpg)
 ![AND Logic Gate](../news-images/logic-gate-and.png)
 *AND gate: activates only when both input RNAs are detected.*
 
