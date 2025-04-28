@@ -1,68 +1,76 @@
 # RNA Logic Gates for Smart, Sprayable Crops
 
-## Introduction
-
-We are excited to announce our latest breakthrough in synthetic biology: the development of **RNA-based logic circuits** tailored for agricultural applications. These advanced RNA systems enable crops to respond intelligently to complex environmental stresses, **unlocking a new era of precision agriculture**.
-
-## What Are RNA Logic Gates?
-
-RNA logic gates are synthetic biological systems designed to process multiple signals within a cell and make decisions — much like electronic circuits. Instead of electricity, **they use RNA molecules as inputs and outputs**, enabling programmable control over gene expression in plants.
+*24 April 2024*  
 
 ---
 
-## Our Innovation: AND and OR Gates for Crops
+## Overview
+We present a new class of **RNA-based logic circuits** that enable crops to make intelligent, on-site decisions in response to drought, pests, or a combination of stresses. These programmable gates deliver targeted protection while minimising energy costs to the plant.
 
-### ✅ AND Gate: Stress-Combination Specific Response
+---
 
-An **AND gate** ensures that a defensive action, like pest resistance, is triggered **only when two stressors are present simultaneously** — for example, **drought stress** *and* **pest attack**.  
-This avoids unnecessary energy expenditure when only a single mild stress is present.
+## 1 What Are RNA Logic Gates?
+In electronics, logic gates decide whether current flows; in biology, **RNA logic gates** decide whether genes are expressed. By wiring together stress-responsive RNAs, we can trigger or silence downstream pathways with digital precision—**all without editing the plant genome**.
+
+---
+
+## 2 Two Gate Architectures
+
+### 2.1 AND Gate — Dual-Stress Precision  
+A defensive response is launched **only when _both_ drought _and_ pest signals are present**.
 
 ![AND Logic Gate](../news-images/logic-gate-and.png)
-*AND gate: activates only when both input RNAs are detected.*
 
-### ✅ OR Gate: Rapid Response to Any Stress
+*Figure 1 AND gate activates when both input RNAs are detected.*
 
-An **OR gate** allows the plant to respond **if either drought or pest stress occurs**.  
-This ensures **fast protective action** whenever a threat is detected, even if only one stress signal is present.
+**Why it matters**  
+Plants conserve resources under mild, single-stress events, activating costly defences only under genuine combined pressure.
+**Energy-efficient defenses**: Activation only under real combined stresses (AND gate).
+**Faster protection**: Rapid action under any single threat (OR gate).
+**Non-GMO potential**: These RNA systems could be deployed via external application (e.g., sprays) without genome modification.
+**Climate-smart agriculture**: Tailoring plant behavior to real field conditions improves resilience and sustainability.
+
+---
+
+### 2.2 OR Gate — Rapid Single-Stress Response  
+A protective response is launched when **either drought _or_ pest signal is detected**.
 
 ![OR Logic Gate](../news-images/logic-gate-or.png)
-*OR gate: activates if either input RNA is detected.*
+
+*Figure 2 OR gate activates when at least one input RNA is present.*
+
+**Why it matters**  
+Provides immediate protection when any individual threat appears—ideal for regions with erratic weather or sudden pest outbreaks.
 
 ---
 
-## How It Works
+## 3 Mechanism of Action — Step-by-Step
 
-1. **Environmental Stressors**:  
-   - Drought triggers the production of drought-responsive RNA.  
-   - Pest attack triggers pest-response RNA.
-   
-2. **Synthetic RNA Logic Gate Activation**:  
-   - In the AND gate system, **both RNAs must bind together** to activate downstream defenses.  
-   - In the OR gate system, **either RNA alone** can trigger defense activation.
-
-3. **hpRNA Production and Defense Activation**:  
-   - Upon activation, the system produces **hairpin RNA (hpRNA)** targeting critical pest genes.  
-   - This initiates an RNA interference (RNAi) response, **neutralizing pest threats** effectively.
+| Step | Event |
+|------|-------|
+| 1 | Drought increases abscisic acid (ABA); pest feeding raises jasmonic acid (JA). |
+| 2 | ABA-inducible **_RD29A_** promoter transcribes **Input RNA A**; JA-inducible **_VSP1_** promoter transcribes **Input RNA B**. |
+| 3 | Gate logic evaluates the presence of A and B. |
+| 4 | Upon activation, the gate removes an RNA transcriptional road-block. |
+| 5 | The plant transcribes a full-length **hpRNA** targeting a critical pest gene. |
+| 6 | Dicer processes hpRNA into siRNAs → RNA interference disables pest feeding. |
 
 ---
 
-## Why It Matters
+## 4 Field Advantages
 
-- 🌱 **Energy-efficient defenses**: Activation only under real combined stresses (AND gate).
-- 🚀 **Faster protection**: Rapid action under any single threat (OR gate).
-- 🧬 **Non-GMO potential**: These RNA systems could be deployed via external application (e.g., sprays) without genome modification.
-- 🌍 **Climate-smart agriculture**: Tailoring plant behavior to real field conditions improves resilience and sustainability.
-
----
-
-## Future Outlook
-
-Our RNA logic gate technology lays the foundation for **programmable, smart crops** that can make autonomous decisions based on their environment.  
-This marks a pivotal advance toward **field-deployable RNA biotechnology**, opening new possibilities for sustainable agriculture across the globe.
+* **Energy Efficiency** — AND gates avoid unnecessary defence costs.  
+* **Speed** — OR gates deliver fast response to single threats.  
+* **Non-GMO Compliance** — Circuits can be topical (sprayable) RNA formulations.  
+* **Climate Resilience** — Programmable logic adapts to real-world stress patterns.
 
 ---
 
-# 📢 Stay Tuned
+## 5 Next Steps
 
-We will continue to develop and optimize these RNA circuits for broader stress-resistance applications across a variety of crops — helping farmers meet the challenges of a changing climate with **smart, living technologies**.
+1. **Greenhouse validation** in cowpea (*Vigna unguiculata*).  
+2. **Topical RNA formulation** trials for foliar application.  
+3. Scale-up manufacturing of synthetic RNAs for field deployment.
+---
+
 
