@@ -68,7 +68,7 @@ export default {
           desc: [
             'AFTBios\n128 City Road\nLondon, EC1V 2NX\nUnited Kingdom',
             'Phone',
-            'For general inquiries, please call us at:\n+44-77000000000',
+            'For administrative inquiries, please email us at:\nadministrator@aftbios.com',
             'Email',
             'For any other information, questions, or feedback:\ncontact@aftbios.com',
             'Connect With Us',
