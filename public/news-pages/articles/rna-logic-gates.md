@@ -1,7 +1,5 @@
 # RNA Logic Gates for Smart, Sprayable Crops
 
-*24 April 2024*  
-
 ---
 
 ## Overview
