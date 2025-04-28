@@ -27,7 +27,7 @@ An **OR gate** allows the plant to respond **if either drought or pest stress oc
 This ensures **fast protective action** whenever a threat is detected, even if only one stress signal is present.
 
 ![OR Logic Gate](/public/news-images/logic-gate-or.png)
-![OR](/aftbios/news-images/logic-gate-or.png)
+![OR Logic Gate](/aftbios/news-images/logic-gate-or.png)
 *OR gate: activates if either input RNA is detected.*
 
 ---
