@@ -1,6 +1,6 @@
 [
   {
-    "id": 4,
+    "id": 5,
     "date": "2024/02/25",
     "title": "Introducing Our Point of Care Diagnostic Platform",
     "brief": "AFTBios is excited to unveil the prototype stage of our innovative Point of Care Diagnostic platform. This pioneering project marks a significant milestone in disease detection and management. By integrating cutting-edge isothermal amplification of nucleic acids with advanced miniaturisation techniques, our platform is set to redefine rapid, accurate, and accessible diagnostic solutions within the healthcare sector.",
@@ -11,7 +11,7 @@
     ]
   },
   {
-    "id": 3,
+    "id": 4,
     "date": "2024/02/21",
     "title": "MolSwift: A Leap Forward in RNA Therapeutics",
     "brief": "We are proud to introduce MolSwift, our innovative prediction platform for therapeutic modified siRNA. MolSwift represents a significant leap forward in the field of RNA therapeutics, offering a powerful tool for the design and optimization of siRNA molecules for targeted gene silencing.",
@@ -22,7 +22,7 @@
     ]
   },
   {
-    "id": 2,
+    "id": 3,
     "date": "2022/12/21",
     "title": "A novel sustainable platform for scaled manufacturing of double-stranded RNA biopesticides",
     "brief": "RNA interference (RNAi) represents one of the most conserved pathways evolved by eukaryotic cells for regulating gene expression. RNAi utilises non-translatable double-stranded RNA (dsRNA) molecules to sequester or degrade mRNA molecules gene. In RNAi, specifically designed exogenous dsRNA delivered to the cell can silence a target gene, a phenomenon that has been exploited in many functional studies and explored in biopesticide applications. The search for safe and sustainable crop pest management options drives the need to offset the effect of inorganic pesticides on biodiversity. The prospect of replacing inorganic pesticides with dsRNA crop spray is gaining popularity, enhanced by its high-target specificity and low environmental impact. However, for dsRNA to reach the pesticide market, it must be produced cost-effectively and sustainably. In this paper, we develop a high-yield expression media that generates up to 15-fold dsRNA yield compared to existing expression media utilising 1 mM IPTG. We also optimise a low-cost purification method that generates high-quality and purified dsRNA. The developed method circumvents the need for hazardous chemical reagents often found in commercial kits or commercial nucleases to eliminate contaminating DNA or single-stranded RNA (ssRNA) species. We also demonstrate that the production platform is scalable, generating 6.29 mg dsRNA from 259 mg wet E. coli cell pellet. The results also provide structural insights into the heterogeneous dsRNA species within the microbial-derived dsRNA pool. Finally, we also show that the purified ‘naked’ dsRNA, without prior formulation, can induce insect toxicity under field conditions. This study provides a novel, complete, low-cost process dsRNA platform with potential for application in industrial dsRNA production.",
@@ -34,7 +34,7 @@
     ]
   },
   {
-    "id": 1,
+    "id": 2,
     "date": "2022/12/20",
     "title": "Low Resource Integrated Platform for Production and Analysis of Capped mRNA",
     "brief": "The existing platform for large-scale mRNA production is fast, but consumable costs, process technicality, and complexity represent key bottlenecks limiting global mRNA biologics manufacturing. Another challenge is the lack of a consolidated platform for mRNA product characterization and assays that meet regulatory requirements. Bridging these innovation gaps to simplify processes and reduce cost would improve mRNA biologics manufacturability, especially in low-resource settings. This study develops a “cotranscriptional” capping strategy that utilizes T7 RNA polymerase, and the Vaccinia Capping System to synthesize and cap mRNA. We created an “integrated reaction buffer” that supports both capping enzymes for catalytic and in vitro transcription processes, enabling one-pot, two-step capped mRNA synthesis. Additionally, we report a novel, one-step analytic platform for rapid, quantitative, capped mRNA analysis. The assay involves target mRNA segment protection with cheap DNA primers and RNase digest of non-hybridized or non-target sequences before analysis by single nucleotide-resolving urea-polyacrylamide gel electrophoresis (PAGE). The integrated approach simplifies production processes and saves costs. Moreover, this assay has potential applications for mRNA analyses and post-transcriptional modification detection in biological samples. Finally, we propose a strategy that may enable unparalleled sequence coverage in RNase mass mapping by adapting the developed assay and replacing urea-PAGE with mass spectrometry.",
@@ -45,16 +45,15 @@
     ]
   },
   {
-  "id": 5,
-  "date": "",
-  "title": "RNA Logic Gates for Smart, Sprayable Crops",
-  "brief": "Announcing our latest innovation in RNA-based logic circuits for agriculture, enabling smart environmental response control.",
-  "image": "logic-gate-hero.png",
-  "file": "rna-logic-gates.md",
-  "tags": [
-    "News",
-    "Innovation"
-  ]
-}
-
+    "id": 1,
+    "date": "2024/04/28",
+    "title": "RNA Logic Gates for Smart, Sprayable Crops",
+    "brief": "Announcing our latest innovation in RNA-based logic circuits for agriculture, enabling smart environmental response control.",
+    "image": "logic-gate-hero.png",
+    "file": "rna-logic-gates.md",
+    "tags": [
+      "News",
+      "Innovation"
+    ]
+  }
 ]
